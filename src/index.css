@@ -1,0 +1,128 @@
+/* Tailwind entry (v4 style). If you're on v3, replace this single line with:
+   @tailwind base; @tailwind components; @tailwind utilities; */
+   @import "tailwindcss";
+
+   /* ---------- Brand tokens (CSS variables) ---------- */
+   :root {
+     --brand-50:  #f3f8f6;
+     --brand-100: #dfeee8;
+     --brand-200: #c7e1d7;
+     --brand-300: #abd4c5;
+     --brand-400: #8bc2b1;
+     --brand-500: #6eaf9e;
+     --brand-600: #369486;  /* primary */
+     --brand-700: #2b7468;
+     --brand-800: #235b50;
+     --brand-900: #1c4740;
+     --brand-night: #0f2d29;
+     --brand-glow: rgba(54,148,134,0.18);
+     --carrot:    #dd7a4a;
+   }
+   
+   /* ---------- Brand utility classes (plain CSS; do NOT @apply these) ---------- */
+   @layer utilities {
+     .bg-brand-50  { background-color: var(--brand-50); }
+     .bg-brand-100 { background-color: var(--brand-100); }
+     .bg-brand-200 { background-color: var(--brand-200); }
+     .bg-brand-300 { background-color: var(--brand-300); }
+     .bg-brand-600 { background-color: var(--brand-600); }
+     .bg-brand-700 { background-color: var(--brand-700); }
+     .bg-carrot    { background-color: var(--carrot); }
+   
+     .text-muted   { color: rgba(30, 41, 38, 0.65); }
+     .text-brand-600 { color: var(--brand-600); }
+     .text-brand-700 { color: var(--brand-700); }
+     .text-brand-900 { color: var(--brand-900); }
+     .text-carrot    { color: var(--carrot); }
+   
+     .border-brand-200 { border-color: var(--brand-200); }
+     .border-brand-300 { border-color: var(--brand-300); }
+     .border-brand-600 { border-color: var(--brand-600); }
+   
+     .max-w-content { max-width: 76rem; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+     @media (min-width: 640px) { .max-w-content { padding-left: 2rem; padding-right: 2rem; } }
+     @media (min-width: 1024px) { .max-w-content { padding-left: 2.5rem; padding-right: 2.5rem; } }
+
+     .surface-gradient {
+       background: linear-gradient(135deg, rgba(54,148,134,0.06), rgba(19,38,35,0.02));
+     }
+   
+     .surface-hero {
+       background: radial-gradient(160% 120% at 20% 0%, rgba(54,148,134,0.18), transparent 55%),
+                   radial-gradient(120% 90% at 90% -10%, rgba(13,35,33,0.12), transparent 60%),
+                   #f6faf8;
+     }
+   
+     .surface-muted {
+       background: linear-gradient(180deg, rgba(19,38,35,0.05), rgba(19,38,35,0));
+     }
+   
+     .shadow-soft {
+       box-shadow: 0 18px 40px -24px rgba(12, 32, 29, 0.35);
+     }
+   }
+   
+   /* ---------- Components (use only built-in utilities in @apply) ---------- */
+   @layer components {
+     .btn-brand {
+       @apply inline-flex items-center rounded-full font-semibold text-white transition;
+       @apply px-4 py-2 text-sm;            /* smaller button */
+       background-color: var(--brand-600);
+     }
+     .btn-brand:hover { background-color: var(--brand-700); }
+   
+     .btn-brand-outline {
+       @apply inline-flex items-center rounded-full font-semibold transition px-5 py-3;
+       color: var(--brand-700);
+       border: 1px solid var(--brand-600);
+       background: transparent;
+     }
+     .btn-brand-outline:hover { background-color: var(--brand-50); }
+   
+     .section { @apply py-14 sm:py-16 lg:py-20; }
+   
+     .section-heading {
+       @apply text-3xl sm:text-4xl font-extrabold text-center;
+       color: var(--brand-900);              /* use CSS var, not @apply */
+     }
+   
+     .card { @apply rounded-xl bg-white ring-1 ring-slate-200 shadow-sm hover:shadow-md transition; }
+   
+     .card-elevated {
+       @apply rounded-3xl bg-white/90 backdrop-blur-sm transition shadow-sm hover:shadow-lg;
+       border: 1px solid rgba(36, 91, 82, 0.08);
+     }
+   
+     .badge-soft {
+       @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide;
+       background: rgba(54,148,134,0.08);
+       color: var(--brand-600);
+       border: 1px solid rgba(54,148,134,0.12);
+     }
+   
+     /* No @apply of custom classes here */
+     .icon-badge {
+       @apply h-12 w-12 rounded-full flex items-center justify-center text-2xl;
+       background-color: var(--brand-50);
+       color: var(--brand-700);
+     }
+   
+     .input, .textarea {
+       @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900
+              placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[var(--brand-400)] focus:border-[var(--brand-400)];
+     }
+     .textarea { @apply min-h-[140px] resize-y; }
+   
+     .footer { @apply border-t border-slate-200 bg-white/70; }
+   }
+   
+   /* Soft hero background */
+   .hero-surface {
+     background:
+       radial-gradient(1200px 600px at 15% -10%, rgba(54,148,134,0.16), transparent 60%),
+       radial-gradient(900px 500px at 105% 0%, rgba(17,42,39,0.12), transparent 65%),
+       #f6faf8;
+   }
+   
+   html { scroll-behavior: smooth; }
+   
