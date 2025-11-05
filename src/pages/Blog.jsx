@@ -38,13 +38,13 @@ export default function Blog() {
             help your home or business save more while wasting less.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-600)] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[var(--brand-700)]"
             >
               Become a contributor
               <FaArrowRight className="text-xs" />
-            </a>
+            </Link>
             <a
               href="#latest-posts"
               className="inline-flex items-center gap-2 rounded-full border border-brand-200 px-5 py-3 text-sm font-semibold text-[var(--brand-600)] transition hover:border-brand-300 hover:bg-brand-50"
@@ -185,13 +185,13 @@ export default function Blog() {
                 Download our press kit, brand assets, and ready-to-use quotes to
                 support coverage of ExpireSense.
               </p>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-700)] transition hover:gap-3"
               >
                 Request press kit
                 <FaArrowRight className="text-xs" />
-              </a>
+              </Link>
             </motion.div>
           </aside>
         </div>

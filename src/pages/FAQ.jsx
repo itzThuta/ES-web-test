@@ -8,6 +8,7 @@ import {
   FaQuestionCircle,
   FaSearch,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const faqItems = [
   {
@@ -332,12 +333,12 @@ function SupportRow({ icon, title, description, href }) {
 
   if (href) {
     return (
-      <a
-        href={href}
+      <Link
+        to={href}
         className="flex items-center gap-3 rounded-xl border border-transparent p-3 transition hover:border-brand-200 hover:bg-white"
       >
         {content}
-      </a>
+      </Link>
     );
   }
 

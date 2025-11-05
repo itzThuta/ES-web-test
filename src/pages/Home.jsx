@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FaCamera, FaLeaf, FaLink, FaUsers } from "react-icons/fa";
 import { FiBell, FiCalendar, FiCpu, FiTrendingUp } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,7 +21,7 @@ const heroStats = [
 
 const highlightCards = [
   {
-    icon: FiBell  ,
+    icon: FiBell,
     title: "Receipts become inventory",
     body: "AI-powered OCR recognises grocery items, suggests expiry dates, and fills your pantry automatically.",
   },
@@ -118,25 +119,25 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-5 max-w-xl text-base sm:text-lg text-slate-600">
-                Automate inventory, forecast expiry dates, and activate your team with
-                live insights. ExpireSense blends AI, collaboration, and sustainability so
-                every item gets used in time.
+                Automate inventory, forecast expiry dates, and activate your
+                team with live insights. ExpireSense blends AI, collaboration,
+                and sustainability so every item gets used in time.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-600)] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg shadow-[rgba(54,148,134,0.25)] transition hover:-translate-y-0.5 hover:bg-[var(--brand-700)]"
                 >
                   Book an interactive demo
                   <span aria-hidden>↗</span>
-                </a>
-                <a
-                  href="/features"
+                </Link>
+                <Link
+                  to="/features"
                   className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-300)] bg-white/80 px-6 py-3 text-sm sm:text-base font-semibold text-[var(--brand-700)] transition hover:border-[var(--brand-400)] hover:bg-brand-50"
                 >
                   Explore live product tour
                   <FaLink className="text-xs" />
-                </a>
+                </Link>
               </div>
               <div className="mt-12 grid gap-4 sm:grid-cols-3">
                 {heroStats.map((stat) => (
@@ -168,7 +169,11 @@ export default function Home() {
             >
               <motion.div
                 animate={{ y: [0, -4, 0] }}
-                transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 8,
+                  ease: "easeInOut",
+                }}
                 className="w-full max-w-sm overflow-hidden rounded-3xl border border-brand-200 bg-white shadow-soft sm:max-w-md lg:max-w-lg"
               >
                 <img
@@ -199,8 +204,9 @@ export default function Home() {
               Built for real kitchens, from homes to hospitality
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-              Every interaction is designed to be fast, collaborative, and insightful—so
-              you hit sustainability targets without slowing down your day.
+              Every interaction is designed to be fast, collaborative, and
+              insightful—so you hit sustainability targets without slowing down
+              your day.
             </p>
           </motion.div>
 
@@ -213,7 +219,11 @@ export default function Home() {
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.06, ease: "easeOut" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: idx * 0.06,
+                    ease: "easeOut",
+                  }}
                   className="group relative overflow-hidden card-elevated p-6"
                 >
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-[var(--brand-600)] shadow-sm">
@@ -243,23 +253,23 @@ export default function Home() {
               viewport={{ once: true, amount: 0.3 }}
               className="max-w-xl"
             >
-            <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
-              Orbit view
-            </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
+                Orbit view
+              </span>
               <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-900">
                 A guided journey from purchase to plate
               </h2>
               <p className="mt-4 text-base sm:text-lg text-slate-600">
-                Every stage is animated, collaborative, and measurable. Pick up where your
-                team left off—no back-and-forth, no spreadsheets.
+                Every stage is animated, collaborative, and measurable. Pick up
+                where your team left off—no back-and-forth, no spreadsheets.
               </p>
-              <a
-                href="/saving-calculator"
+              <Link
+                to="/saving-calculator"
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-[var(--brand-700)] shadow-sm ring-1 ring-brand-200 transition hover:bg-brand-50"
               >
                 Estimate your savings
                 <span aria-hidden>→</span>
-              </a>
+              </Link>
             </motion.div>
 
             <div className="grid flex-1 gap-6">
@@ -271,7 +281,11 @@ export default function Home() {
                     initial={{ opacity: 0, x: 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: idx * 0.06, ease: "easeOut" }}
+                    transition={{
+                      duration: 0.5,
+                      delay: idx * 0.06,
+                      ease: "easeOut",
+                    }}
                     className="card-elevated relative overflow-hidden p-6 transition hover:-translate-y-1"
                   >
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-[var(--brand-600)] shadow-sm">
@@ -308,8 +322,8 @@ export default function Home() {
               See ExpireSense orchestrate a real kitchen
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600">
-              From scanning a grocery receipt to triggering reminders and recipe ideas,
-              watch the full feedback loop play out.
+              From scanning a grocery receipt to triggering reminders and recipe
+              ideas, watch the full feedback loop play out.
             </p>
           </motion.div>
 
@@ -350,8 +364,8 @@ export default function Home() {
               Thousands trust ExpireSense to rescue ingredients
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-              Hospitality, campuses, and households worldwide share one goal: use what
-              they buy. These stories show what happens next.
+              Hospitality, campuses, and households worldwide share one goal:
+              use what they buy. These stories show what happens next.
             </p>
           </motion.div>
 
@@ -372,7 +386,11 @@ export default function Home() {
                   initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.55, delay: idx * 0.08, ease: "easeOut" }}
+                  transition={{
+                    duration: 0.55,
+                    delay: idx * 0.08,
+                    ease: "easeOut",
+                  }}
                   className="card-elevated relative flex h-full flex-col justify-between overflow-hidden p-6 transition hover:-translate-y-1"
                 >
                   <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -417,24 +435,25 @@ export default function Home() {
                     Start saving money, time, and the planet—together
                   </h2>
                   <p className="mt-4 text-base sm:text-lg text-slate-600">
-                    Join the ExpireSense movement and keep every ingredient in motion.
-                    We handle the reminders—so you can focus on the cooking.
+                    Join the ExpireSense movement and keep every ingredient in
+                    motion. We handle the reminders—so you can focus on the
+                    cooking.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-4">
-                    <a
-                      href="/contact"
+                    <Link
+                      to="/contact"
                       className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-600)] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg shadow-[rgba(54,148,134,0.25)] transition hover:-translate-y-0.5 hover:bg-[var(--brand-700)]"
                     >
                       Talk to our team
                       <span aria-hidden>↗</span>
-                    </a>
-                    <a
-                      href="/faq"
+                    </Link>
+                    <Link
+                      to="/faq"
                       className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-6 py-3 text-sm sm:text-base font-semibold text-[var(--brand-700)] transition hover:border-[var(--brand-300)] hover:bg-brand-50"
                     >
                       Browse FAQs
                       <FiBell className="text-sm" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <motion.div

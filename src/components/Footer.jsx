@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png"; // replace with your logo
 
 export default function Footer() {
@@ -23,11 +24,11 @@ export default function Footer() {
         <div>
           <h4 className="mb-4 font-semibold text-slate-900">Direct Links</h4>
           <ul className="space-y-2 text-sm text-slate-600">
-            <li><a href="/features" className="transition hover:text-[var(--brand-600)]">Features</a></li>
-            <li><a href="/why-us" className="transition hover:text-[var(--brand-600)]">Why Us</a></li>
-            <li><a href="/about" className="transition hover:text-[var(--brand-600)]">About Us</a></li>
-            <li><a href="/blog" className="transition hover:text-[var(--brand-600)]">Blog</a></li>
-            <li><a href="/contact" className="transition hover:text-[var(--brand-600)]">Contact</a></li>
+            <li><Link to="/features" className="transition hover:text-[var(--brand-600)]">Features</Link></li>
+            <li><Link to="/why-us" className="transition hover:text-[var(--brand-600)]">Why Us</Link></li>
+            <li><Link to="/about" className="transition hover:text-[var(--brand-600)]">About Us</Link></li>
+            <li><Link to="/blog" className="transition hover:text-[var(--brand-600)]">Blog</Link></li>
+            <li><Link to="/contact" className="transition hover:text-[var(--brand-600)]">Contact</Link></li>
           </ul>
         </div>
 
@@ -44,9 +45,9 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="/contact" className="transition hover:text-[var(--brand-600)]">
+              <Link to="/contact" className="transition hover:text-[var(--brand-600)]">
                 Book a call
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -102,8 +103,8 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-slate-500 md:flex-row">
           <p>© {year} ExpireSense — Smart • Simple • Sustainable</p>
           <div className="flex gap-6">
-            <a href="/privacy" className="transition hover:text-[var(--brand-600)]">Privacy Policy</a>
-            <a href="/imprint" className="transition hover:text-[var(--brand-600)]">Imprint</a>
+            <Link to="/privacy" className="transition hover:text-[var(--brand-600)]">Privacy Policy</Link>
+            <Link to="/imprint" className="transition hover:text-[var(--brand-600)]">Imprint</Link>
           </div>
         </div>
       </div>
