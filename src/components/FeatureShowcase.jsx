@@ -112,7 +112,7 @@ export default function FeatureShowcase() {
             viewport={{ once: true, amount: 0.35 }}
             className="order-2 text-center lg:order-2 lg:text-left"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--brand-600)]">
               Product tour
             </span>
             <motion.h2
@@ -120,7 +120,7 @@ export default function FeatureShowcase() {
               variants={slideUp(0.05)}
               initial="hidden"
               animate="show"
-              className="mt-5 text-3xl sm:text-4xl font-bold text-slate-900 mx-auto max-w-2xl lg:mx-0"
+              className="mt-5 text-2xl sm:text-3xl font-bold text-slate-900 mx-auto max-w-2xl lg:mx-0"
             >
               {activeStep.title}
             </motion.h2>
@@ -178,10 +178,10 @@ export default function FeatureShowcase() {
                 <FaArrowLeft className="h-4 w-4" />
                 <span>Previous</span>
               </button>
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                  Progress
-                </span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                      Progress
+                    </span>
                 <div className="relative h-1.5 w-32 overflow-hidden rounded-full bg-brand-50">
                   <motion.span
                     className="absolute inset-y-0 left-0 origin-left rounded-full bg-gradient-to-r from-[var(--brand-600)] via-[var(--brand-500)] to-[var(--brand-600)]"

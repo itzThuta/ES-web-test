@@ -107,14 +107,14 @@ export default function FAQ() {
         >
           <motion.span
             variants={slideUp(0)}
-            className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-sm font-medium text-[var(--brand-700)] shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-[0.75rem] font-medium text-[var(--brand-700)] shadow-sm"
           >
             <FaQuestionCircle className="text-[var(--brand-600)]" />
             Need a quick answer?
           </motion.span>
           <motion.h1
             variants={popIn(0.05)}
-            className="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900"
+            className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900"
           >
             Frequently Asked Questions
           </motion.h1>

@@ -124,10 +124,10 @@ export default function Subscription() {
         <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)]">
             <div className="max-w-3xl">
-              <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-700)]">
+              <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[var(--brand-700)]">
                 B2B Programs
               </p>
-              <h1 className="mt-8 text-3xl font-black leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              <h1 className="mt-8 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl lg:text-4xl">
                 Subscription plans built for multi-location food operators
               </h1>
               <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
@@ -189,7 +189,7 @@ export default function Subscription() {
                 transition={{ duration: 0.4 }}
                 className="rounded-3xl border border-brand-200 bg-white/90 p-6 shadow-soft backdrop-blur"
               >
-                <p className="text-3xl font-black text-[var(--brand-600)]">{stat.value}</p>
+                <p className="text-2xl font-semibold text-[var(--brand-600)]">{stat.value}</p>
                 <p className="mt-2 text-sm uppercase tracking-wide text-slate-500">{stat.label}</p>
               </motion.div>
             ))}
@@ -204,7 +204,7 @@ export default function Subscription() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--brand-600)]">
               Built for operators
             </p>
-            <h2 className="mt-3 text-2xl font-black sm:text-3xl">
+            <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
               Align finance, culinary, and sustainability teams in one workspace
             </h2>
             <p className="mt-4 text-base text-slate-600">
@@ -239,7 +239,7 @@ export default function Subscription() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
               Subscription tiers
             </p>
-            <h2 className="mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
+            <h2 className="mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
               Choose the plan that fits your rollout
             </h2>
             <p className="mt-4 text-base text-slate-600 sm:text-lg">
@@ -285,7 +285,7 @@ export default function Subscription() {
                       {tier.highlight}
                     </p>
                     <h3 className="mt-2 text-2xl font-bold">{tier.name}</h3>
-                    <p className="mt-6 text-4xl font-black">
+                    <p className="mt-6 text-3xl font-bold">
                       {tier.price}
                       <span className="text-base font-medium">{tier.cadence}</span>
                     </p>
@@ -334,7 +334,7 @@ export default function Subscription() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--brand-600)]">
                 White-glove delivery
               </p>
-              <h2 className="mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
+              <h2 className="mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
                 From pilot to global policy in under 90 days
               </h2>
               <p className="mt-4 text-base text-slate-600">

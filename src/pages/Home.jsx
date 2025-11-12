@@ -109,7 +109,7 @@ export default function Home() {
               <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--brand-700)]">
                 Smarter kitchens · Happier planet
               </span>
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] text-slate-900 mx-auto max-w-3xl lg:mx-0">
+              <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] text-slate-900 mx-auto max-w-3xl lg:mx-0">
                 Turn receipts into action with{" "}
                 <span className="bg-gradient-to-r from-[var(--brand-600)] via-[var(--brand-500)] to-[var(--brand-600)] bg-clip-text text-transparent">
                   ExpireSense
@@ -146,7 +146,7 @@ export default function Home() {
                     viewport={{ once: true, amount: 0.4 }}
                     className="card-elevated px-5 py-5 text-center sm:text-left"
                   >
-                    <span className="block text-2xl font-black text-[var(--brand-600)]">
+                    <span className="block text-xl font-semibold text-[var(--brand-600)]">
                       {stat.value}
                     </span>
                     <span className="text-xs uppercase tracking-wide text-slate-500">
@@ -197,7 +197,7 @@ export default function Home() {
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-700)]">
               Why choose ExpireSense
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
               Built for real kitchens, from homes to hospitality
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
@@ -258,7 +258,7 @@ export default function Home() {
               <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
                 Pantry Journey
               </span>
-              <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-900">
+              <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
                 A guided journey from purchase to plate
               </h2>
               <p className="mt-4 text-base sm:text-lg text-slate-600">
@@ -317,7 +317,7 @@ export default function Home() {
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
               3-minute demo
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
               See how ExpireSense works from start to finish.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600">
@@ -359,7 +359,7 @@ export default function Home() {
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
               The ripple effect
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
               ExpireSense helps thousands save food every day.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
@@ -427,7 +427,7 @@ export default function Home() {
             <div className="rounded-3xl bg-white px-8 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-16">
               <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                 <div>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
                     Start saving money, time, and the planet—together with
                     ExpireSense.
                   </h2>
@@ -465,7 +465,7 @@ export default function Home() {
                       variants={popIn(0.05)}
                       className="rounded-2xl border border-brand-100 bg-white/90 px-5 py-4 text-center shadow-sm backdrop-blur"
                     >
-                      <p className="text-2xl font-black text-[var(--brand-600)]">
+                      <p className="text-xl font-semibold text-[var(--brand-600)]">
                         {stat.value}
                       </p>
                       <p className="text-xs uppercase tracking-wide text-slate-500">

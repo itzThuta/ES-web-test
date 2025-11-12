@@ -51,10 +51,10 @@ export default function HowItWorks() {
           viewport={{ once: true, amount: 0.35 }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)] shadow-sm">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--brand-600)] shadow-sm">
             Flow in motion
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-slate-900">
+          <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
             How ExpireSense keeps your shelves in sync
           </h2>
           <p className="mt-3 text-slate-600 text-sm md:text-base max-w-xl mx-auto">

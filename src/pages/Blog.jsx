@@ -23,10 +23,10 @@ export default function Blog() {
           transition={{ duration: 0.5 }}
           className="rounded-3xl border border-slate-200 bg-white px-6 py-12 text-center shadow-sm sm:px-10 sm:py-16 sm:text-left"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-sm font-medium text-[var(--brand-600)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-[0.7rem] font-medium text-[var(--brand-600)]">
             Insights & stories
           </span>
-          <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900">
+          <h1 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
             Inside the ExpireSense kitchen
           </h1>
           <p className="mt-4 mx-auto max-w-2xl text-base sm:text-lg text-slate-600 sm:mx-0">
@@ -84,7 +84,7 @@ export default function Blog() {
                   <span>{post.date}</span>
                 </div>
 
-                <h2 className="mt-5 text-2xl font-bold text-slate-900 transition group-hover:text-[var(--brand-700)]">
+                <h2 className="mt-5 text-xl font-semibold text-slate-900 transition group-hover:text-[var(--brand-700)]">
                   {post.title}
                 </h2>
                 <p className="mt-3 text-base text-slate-600">{post.excerpt}</p>

@@ -48,7 +48,7 @@ export default function Features() {
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
               Feature deep dive
             </span>
-            <h1 className="mt-6 text-4xl sm:text-5xl font-black leading-tight text-slate-900">
+            <h1 className="mt-6 text-3xl sm:text-4xl font-bold leading-tight text-slate-900">
               Everything ExpireSense does to keep your kitchen in flow
             </h1>
             <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
@@ -80,7 +80,7 @@ export default function Features() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
               Operate with confidence at every scale
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">

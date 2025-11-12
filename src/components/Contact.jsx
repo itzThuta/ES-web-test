@@ -75,7 +75,7 @@ export default function Contact() {
           className="text-center"
         >
           <span className="badge-soft mx-auto">We respond fast</span>
-          <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-semibold text-slate-900 sm:text-3xl">
             Contact <span className="text-[var(--brand-600)]">ExpireSense</span>
           </h2>
           <p className="mt-3 text-base text-slate-600 sm:text-lg">
@@ -93,7 +93,7 @@ export default function Contact() {
             className="space-y-6"
           >
             <div className="rounded-3xl border border-brand-200 bg-white/90 p-8 shadow-lg backdrop-blur">
-              <h3 className="text-2xl font-semibold text-slate-900">Reach us directly</h3>
+              <h3 className="text-xl font-semibold text-slate-900">Reach us directly</h3>
               <p className="mt-2 text-sm text-slate-500">
                 Email, phone, or swing by a studio. We route every request to the right squad.
               </p>

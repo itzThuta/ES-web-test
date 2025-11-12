@@ -48,7 +48,7 @@ export default function Benefits({ id = "benefits", className = "" }) {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-extrabold text-slate-900"
+        className="text-2xl md:text-3xl font-bold text-slate-900"
         >
           Why <span className="text-teal-600">ExpireSense?</span>
         </motion.h2>

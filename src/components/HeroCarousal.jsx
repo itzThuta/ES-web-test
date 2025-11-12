@@ -16,7 +16,7 @@ function Slide({ title, subtitle }) {
         </div>
       </div>
       <div className="order-2 lg:order-1 text-center lg:text-left">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-900">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-brand-900">
           {title}
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-700">{subtitle}</p>

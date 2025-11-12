@@ -52,10 +52,10 @@ export default function About() {
           viewport={{ once: true, amount: 0.3 }}
           className="rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-lg backdrop-blur-sm sm:p-12"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--brand-600)]">
             About ExpireSense
           </span>
-          <h2 className="mt-5 text-3xl font-bold text-slate-900 sm:text-4xl">
+          <h2 className="mt-5 text-2xl font-semibold text-slate-900 sm:text-3xl">
             We help every kitchen waste less and plan smarter
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -78,7 +78,7 @@ export default function About() {
                 whileHover={{ scale: 1.03 }}
                 className="rounded-2xl border border-slate-200 bg-white/95 p-4 text-center shadow-sm transition"
               >
-                <p className="text-2xl font-black text-[var(--brand-600)] sm:text-3xl">{metric.value}</p>
+                <p className="text-xl font-semibold text-[var(--brand-600)] sm:text-2xl">{metric.value}</p>
                 <p className="mt-1 text-xs uppercase tracking-wide text-slate-500">{metric.label}</p>
               </motion.div>
             ))}

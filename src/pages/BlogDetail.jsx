@@ -13,7 +13,7 @@ export default function BlogDetail() {
     return (
       <section className="bg-white py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-3xl font-bold text-slate-900">Article not found</h1>
+          <h1 className="text-2xl font-semibold text-slate-900">Article not found</h1>
           <p className="mt-3 text-slate-600">
             The article you are looking for may have been moved. Explore the{" "}
             <Link to="/blog" className="text-[var(--brand-600)] underline">
@@ -44,7 +44,7 @@ export default function BlogDetail() {
           className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
         >
           <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-[var(--brand-600)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 text-[0.65rem] text-[var(--brand-600)]">
             {post.tag}
           </span>
             <span className="flex items-center gap-2 text-slate-400">
@@ -56,7 +56,7 @@ export default function BlogDetail() {
               {post.date}
             </span>
           </div>
-          <h1 className="mt-4 text-3xl font-black leading-tight text-slate-900 sm:text-4xl">
+          <h1 className="mt-4 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
             {post.title}
           </h1>
           <p className="mt-3 text-sm text-slate-500">By {post.author}</p>
@@ -84,7 +84,7 @@ export default function BlogDetail() {
           >
             {post.sections.map((section) => (
               <section key={section.heading}>
-                <h2 className="text-2xl font-semibold text-slate-900">
+                <h2 className="text-xl font-semibold text-slate-900">
                   {section.heading}
                 </h2>
                 <p className="mt-3">
