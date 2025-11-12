@@ -2,7 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, useSpring } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-import { FiBell, FiBookOpen, FiCamera, FiLayers, FiTrendingUp } from "react-icons/fi";
+import { FiBell, FiBookOpen, FiCamera, FiCheckCircle, FiLayers, FiTrendingUp } from "react-icons/fi";
+
+import { fadeIn, popIn, slideUp, staggerChildren } from "../utils/motionPresets";
 
 import shoppingImg from "../assets/2.png";
 import inventoryImg from "../assets/1.png";
@@ -17,6 +19,10 @@ const STEPS = [
       "Snap a receipt or scan a barcode. ExpireSense recognises items instantly so the whole pantry is ready to track.",
     icon: FiCamera,
     visual: shoppingImg,
+    highlights: [
+      "OCR captures receipts with >98% accuracy",
+      "Barcode mode auto-fills categories instantly",
+    ],
   },
   {
     title: "Organise effortlessly",
@@ -24,6 +30,10 @@ const STEPS = [
       "Items slot into fridge, freezer, or pantry with smart defaults and shared access for everyone in your space.",
     icon: FiLayers,
     visual: inventoryImg,
+    highlights: [
+      "Drag-and-drop shelves shared across the home",
+      "Smart filters surface expiring items first",
+    ],
   },
   {
     title: "Let reminders do the work",
@@ -31,6 +41,10 @@ const STEPS = [
       "Friendly nudges land before food spoils. Snooze, freeze, or cook suggestions keep waste close to zero.",
     icon: FiBell,
     visual: expiryImg,
+    highlights: [
+      "Predictive alerts tuned to household preferences",
+      "One-tap snooze or freeze with automatic rescheduling",
+    ],
   },
   {
     title: "Cook with confidence",
@@ -38,6 +52,10 @@ const STEPS = [
       "Use-up recipe ideas combine what is on hand with what is about to expire so meal planning stays simple.",
     icon: FiBookOpen,
     visual: recipesImg,
+    highlights: [
+      "Chef-curated suggestions for what needs attention",
+      "Portion scaling keeps leftovers and diets on track",
+    ],
   },
   {
     title: "Plan once, enjoy often",
@@ -45,6 +63,10 @@ const STEPS = [
       "Weekly views highlight wins, savings, and sustainability gains to keep the whole team motivated.",
     icon: FiTrendingUp,
     visual: plannerImg,
+    highlights: [
+      "Automated reports track waste, savings, and impact",
+      "Invite collaborators with roles in under a minute",
+    ],
   },
 ];
 
@@ -54,16 +76,17 @@ export default function FeatureShowcase() {
 
   const activeStep = STEPS[index];
   const progress = useMemo(() => (index + 1) / STEPS.length, [index]);
-  const progressSpring = useSpring(progress, { stiffness: 90, damping: 26, mass: 0.4 });
+  const progressSpring = useSpring(progress, { stiffness: 180, damping: 24, mass: 0.25 });
 
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (paused ? prev : (prev + 1) % STEPS.length));
-    }, 6500);
+    }, 4500);
     return () => clearInterval(timer);
   }, [paused]);
 
   const goTo = (nextIndex) => setIndex((nextIndex + STEPS.length) % STEPS.length);
+  const ActiveIcon = activeStep.icon;
 
   return (
     <section className="relative overflow-hidden bg-white py-16 sm:py-20">
@@ -72,65 +95,114 @@ export default function FeatureShowcase() {
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
           <motion.div
             key={activeStep.visual}
-            initial={{ opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="order-2 flex justify-center lg:order-1"
+            variants={popIn(0.05)}
+            initial="hidden"
+            animate="show"
+            className="order-1 flex justify-center lg:order-1"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
             <PhoneFrame src={activeStep.visual} alt={activeStep.title} />
           </motion.div>
 
-          <div className="order-1 lg:order-2">
+          <motion.div
+            variants={staggerChildren(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.35 }}
+            className="order-2 text-center lg:order-2 lg:text-left"
+          >
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
               Product tour
             </span>
             <motion.h2
               key={activeStep.title}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="mt-5 text-3xl sm:text-4xl font-bold text-slate-900"
+              variants={slideUp(0.05)}
+              initial="hidden"
+              animate="show"
+              className="mt-5 text-3xl sm:text-4xl font-bold text-slate-900 mx-auto max-w-2xl lg:mx-0"
             >
               {activeStep.title}
             </motion.h2>
             <motion.p
               key={activeStep.description}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.05 }}
-              className="mt-3 max-w-xl text-sm sm:text-base text-slate-600"
+              variants={fadeIn(0.1)}
+              initial="hidden"
+              animate="show"
+              className="mt-3 max-w-xl text-sm sm:text-base text-slate-600 mx-auto lg:mx-0"
             >
               {activeStep.description}
             </motion.p>
 
-            <div className="mt-6 flex items-center gap-3">
+            <motion.div
+              key={`${activeStep.title}-panel`}
+              variants={popIn(0.12)}
+              initial="hidden"
+              animate="show"
+              className="mt-8 rounded-3xl border border-slate-200 bg-slate-50/80 p-6 text-left shadow-sm sm:p-8 lg:text-left"
+            >
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)] shadow-sm ring-1 ring-brand-100">
+                  Step {index + 1} of {STEPS.length}
+                </span>
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-100 text-[var(--brand-700)] shadow-sm">
+                  <ActiveIcon className="h-5 w-5" />
+                </span>
+              </div>
+              <p className="mt-5 text-base text-slate-600 leading-relaxed">
+                {activeStep.description}
+              </p>
+              <div className="mt-6 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
+                {activeStep.highlights.map((highlight) => (
+                  <span key={highlight} className="flex items-start gap-2">
+                    <FiCheckCircle className="mt-0.5 h-4 w-4 text-[var(--brand-600)]" />
+                    <span>{highlight}</span>
+                  </span>
+                ))}
+              </div>
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                <span>Focus: {activeStep.title}</span>
+                <span>Use the controls to explore the tour</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={slideUp(0.1)}
+              className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:justify-start"
+            >
               <button
                 type="button"
                 onClick={() => goTo(index - 1)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-brand-200 hover:text-[var(--brand-600)]"
-                aria-label="Previous step"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-brand-200 hover:text-[var(--brand-600)]"
               >
                 <FaArrowLeft className="h-4 w-4" />
+                <span>Previous</span>
               </button>
-              <div className="relative h-1.5 w-40 overflow-hidden rounded-full bg-brand-50">
-                <motion.span
-                  className="absolute inset-y-0 left-0 origin-left rounded-full bg-gradient-to-r from-[var(--brand-600)] via-[var(--brand-500)] to-[var(--brand-600)]"
-                  style={{ scaleX: progressSpring }}
-                />
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Progress
+                </span>
+                <div className="relative h-1.5 w-32 overflow-hidden rounded-full bg-brand-50">
+                  <motion.span
+                    className="absolute inset-y-0 left-0 origin-left rounded-full bg-gradient-to-r from-[var(--brand-600)] via-[var(--brand-500)] to-[var(--brand-600)]"
+                    style={{ scaleX: progressSpring }}
+                  />
+                </div>
               </div>
               <button
                 type="button"
                 onClick={() => goTo(index + 1)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-brand-200 hover:text-[var(--brand-600)]"
-                aria-label="Next step"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-brand-200 hover:text-[var(--brand-600)]"
               >
+                <span>Next</span>
                 <FaArrowRight className="h-4 w-4" />
               </button>
-            </div>
+            </motion.div>
 
-            <ul className="mt-10 grid gap-3">
+            <p className="mt-10 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Jump to a moment
+            </p>
+            <ul className="mt-3 grid gap-3 max-w-3xl mx-auto text-left sm:grid-cols-2 lg:mx-0 lg:grid-cols-3">
               {STEPS.map((step, stepIndex) => {
                 const Icon = step.icon;
                 const isActive = stepIndex === index;
@@ -145,13 +217,17 @@ export default function FeatureShowcase() {
                           : "border-slate-200 bg-white hover:border-brand-200"
                       }`}
                     >
-                      <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${isActive ? "bg-brand-100 text-[var(--brand-700)]" : "bg-slate-100 text-slate-500"}`}>
+                      <span
+                        className={`flex h-10 w-10 items-center justify-center rounded-xl ${
+                          isActive ? "bg-brand-100 text-[var(--brand-700)]" : "bg-slate-100 text-slate-500"
+                        }`}
+                      >
                         <Icon className="h-4 w-4" />
                       </span>
                       <div>
                         <p className="text-sm font-semibold text-slate-900">{step.title}</p>
                         <p className="text-xs text-slate-500">
-                          {stepIndex + 1} / {STEPS.length}
+                          Step {stepIndex + 1}
                         </p>
                       </div>
                     </button>
@@ -159,7 +235,7 @@ export default function FeatureShowcase() {
                 );
               })}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -171,7 +247,7 @@ function PhoneFrame({ src, alt }) {
     <motion.div
       animate={{ y: [0, -6, 0] }}
       transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-      className="relative w-[160px] overflow-hidden rounded-[26px] border border-slate-200 bg-white p-3 shadow-sm sm:w-[190px] md:w-[210px] lg:w-[230px]"
+      className="relative w-[200px] overflow-hidden rounded-[28px] border border-slate-200 bg-white p-4 shadow-sm sm:w-[240px] md:w-[260px] lg:w-[300px]"
     >
       <div className="relative aspect-[9/18] w-full overflow-hidden rounded-[20px] border border-slate-200 bg-[linear-gradient(180deg,#f6fbf9,white)]">
         <div className="absolute left-1/2 top-0 h-4 w-16 -translate-x-1/2 rounded-b-2xl bg-slate-900/80" />

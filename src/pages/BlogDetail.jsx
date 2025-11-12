@@ -3,11 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaClock, FaTag } from "react-icons/fa";
 import { blogPosts } from "../data/blogPosts";
-
-const fade = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-};
+import { popIn, slideUp } from "../utils/motionPresets";
 
 export default function BlogDetail() {
   const { slug } = useParams();
@@ -42,7 +38,7 @@ export default function BlogDetail() {
         </Link>
 
         <motion.header
-          variants={fade}
+          variants={popIn(0.05)}
           initial="hidden"
           animate="show"
           className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
@@ -67,10 +63,9 @@ export default function BlogDetail() {
         </motion.header>
 
         <motion.div
-          variants={fade}
+          variants={popIn(0.12)}
           initial="hidden"
           animate="show"
-          transition={{ delay: 0.08 }}
           className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
         >
           <img
@@ -82,10 +77,9 @@ export default function BlogDetail() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)]">
           <motion.div
-            variants={fade}
+            variants={slideUp(0.1)}
             initial="hidden"
             animate="show"
-            transition={{ delay: 0.12 }}
             className="space-y-10 text-base leading-relaxed text-slate-700"
           >
             {post.sections.map((section) => (
@@ -104,10 +98,9 @@ export default function BlogDetail() {
           </motion.div>
 
           <motion.aside
-            variants={fade}
+            variants={slideUp(0.18)}
             initial="hidden"
             animate="show"
-            transition={{ delay: 0.18 }}
             className="space-y-6"
           >
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">

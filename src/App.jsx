@@ -55,6 +55,7 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollRestoration from "./components/ScrollRestoration";
 
 // Pages
 import Home from "./pages/Home";
@@ -65,12 +66,14 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/ContactUs";
+import Subscription from "./pages/Subscription";
 import Savings from "./components/Savings";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Router>
+        <ScrollRestoration />
         <Navbar />
 
         <main className="pt-20 min-h-[calc(100vh-140px)]">
@@ -81,6 +84,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
+            <Route path="/subscription" element={<Subscription />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/saving-calculator" element={<Savings />} />

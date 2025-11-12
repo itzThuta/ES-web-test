@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaClock, FaTag } from "react-icons/fa";
 import { blogPosts } from "../data/blogPosts";
-
-const fade = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+import { fadeIn, popIn, slideUp, staggerChildren } from "../utils/motionPresets";
 
 export default function Blog() {
   const groupedByTag = useMemo(() => {
@@ -25,7 +21,7 @@ export default function Blog() {
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="rounded-3xl border border-slate-200 bg-white px-6 py-12 sm:px-10 sm:py-16 shadow-sm"
+          className="rounded-3xl border border-slate-200 bg-white px-6 py-12 text-center shadow-sm sm:px-10 sm:py-16 sm:text-left"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-sm font-medium text-[var(--brand-600)]">
             Insights & stories
@@ -33,11 +29,11 @@ export default function Blog() {
           <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900">
             Inside the ExpireSense kitchen
           </h1>
-          <p className="mt-4 max-w-2xl text-base sm:text-lg text-slate-600">
+          <p className="mt-4 mx-auto max-w-2xl text-base sm:text-lg text-slate-600 sm:mx-0">
             Practical tips, product deep dives, and sustainability spotlights to
             help your home or business save more while wasting less.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 sm:justify-start">
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-600)] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[var(--brand-700)]"
@@ -60,7 +56,7 @@ export default function Blog() {
           className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)]"
         >
           <motion.div
-            variants={fade}
+            variants={staggerChildren(0.08)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
@@ -69,11 +65,10 @@ export default function Blog() {
             {blogPosts.map((post, index) => (
               <motion.article
                 key={post.slug}
-                variants={fade}
+                variants={popIn(index * 0.06)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.06 }}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl"
               >
                 <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-wide text-slate-400">
@@ -112,7 +107,7 @@ export default function Blog() {
 
           <aside className="space-y-6">
             <motion.div
-              variants={fade}
+              variants={slideUp(0.05)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
@@ -145,7 +140,7 @@ export default function Blog() {
             </motion.div>
 
             <motion.div
-              variants={fade}
+              variants={slideUp(0.1)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
@@ -172,7 +167,7 @@ export default function Blog() {
             </motion.div>
 
             <motion.div
-              variants={fade}
+              variants={slideUp(0.15)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}

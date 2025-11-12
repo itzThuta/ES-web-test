@@ -9,8 +9,8 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-slate-200 bg-white text-slate-700">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
-        <div>
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 text-center sm:text-left md:grid-cols-4">
+        <div className="mx-auto max-w-sm sm:mx-0">
           <img
             src={logo}
             alt="ExpireSense Logo"
@@ -21,18 +21,53 @@ export default function Footer() {
           </p>
         </div>
 
-        <div>
+        <div className="mx-auto max-w-xs sm:mx-0">
           <h4 className="mb-4 font-semibold text-slate-900">Direct Links</h4>
           <ul className="space-y-2 text-sm text-slate-600">
-            <li><Link to="/features" className="transition hover:text-[var(--brand-600)]">Features</Link></li>
-            <li><Link to="/why-us" className="transition hover:text-[var(--brand-600)]">Why Us</Link></li>
-            <li><Link to="/about" className="transition hover:text-[var(--brand-600)]">About Us</Link></li>
-            <li><Link to="/blog" className="transition hover:text-[var(--brand-600)]">Blog</Link></li>
-            <li><Link to="/contact" className="transition hover:text-[var(--brand-600)]">Contact</Link></li>
+            <li>
+              <Link
+                to="/features"
+                className="transition hover:text-[var(--brand-600)]"
+              >
+                Features
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/why-us"
+                className="transition hover:text-[var(--brand-600)]"
+              >
+                Why Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="transition hover:text-[var(--brand-600)]"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blog"
+                className="transition hover:text-[var(--brand-600)]"
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="transition hover:text-[var(--brand-600)]"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
-        <div>
+        <div className="mx-auto max-w-xs sm:mx-0">
           <h4 className="mb-4 font-semibold text-slate-900">Contact</h4>
           <ul className="space-y-2 text-sm text-slate-600">
             <li>Bangkok, Thailand</li>
@@ -45,14 +80,17 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <Link to="/contact" className="transition hover:text-[var(--brand-600)]">
+              <Link
+                to="/contact"
+                className="transition hover:text-[var(--brand-600)]"
+              >
                 Book a call
               </Link>
             </li>
           </ul>
         </div>
 
-        <div>
+        <div className="mx-auto max-w-xs sm:mx-0">
           <h4 className="mb-4 font-semibold text-slate-900">Follow Us</h4>
           <ul className="space-y-3 text-sm text-slate-600">
             <li>
@@ -100,11 +138,21 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-slate-200">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-sm text-slate-500 md:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-center text-sm text-slate-500 md:flex-row md:text-left">
           <p>© {year} ExpireSense — Smart • Simple • Sustainable</p>
-          <div className="flex gap-6">
-            <Link to="/privacy" className="transition hover:text-[var(--brand-600)]">Privacy Policy</Link>
-            <Link to="/imprint" className="transition hover:text-[var(--brand-600)]">Imprint</Link>
+          <div className="flex flex-wrap justify-center gap-6 md:justify-end">
+            <Link
+              to="/privacy"
+              className="transition hover:text-[var(--brand-600)]"
+            >
+              Privacy Policy
+            </Link>
+            {/* <Link
+              to="/imprint"
+              className="transition hover:text-[var(--brand-600)]"
+            >
+              Imprint
+            </Link> */}
           </div>
         </div>
       </div>

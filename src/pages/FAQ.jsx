@@ -9,6 +9,7 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { fadeIn, popIn, slideUp, staggerChildren } from "../utils/motionPresets";
 
 const faqItems = [
   {
@@ -97,34 +98,34 @@ export default function FAQ() {
   return (
     <section className="bg-slate-50 py-20">
       <div className="mx-auto max-w-content">
-        <div className="text-center">
+        <motion.div
+          variants={staggerChildren(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          className="text-center"
+        >
           <motion.span
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            variants={slideUp(0)}
             className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-sm font-medium text-[var(--brand-700)] shadow-sm"
           >
             <FaQuestionCircle className="text-[var(--brand-600)]" />
             Need a quick answer?
           </motion.span>
           <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            variants={popIn(0.05)}
             className="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900"
           >
             Frequently Asked Questions
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            variants={fadeIn(0.1)}
             className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto"
           >
             Explore the most common topics about ExpireSense. Use the filters or
             search to find exactly what you need.
           </motion.p>
-        </div>
+        </motion.div>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(240px,1fr)]">
           <div>

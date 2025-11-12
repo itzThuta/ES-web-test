@@ -1,8 +1,17 @@
 import { useMemo, useState } from "react";
 import { FaCalculator, FaPiggyBank } from "react-icons/fa";
 
-const BASE_WASTE = 0.2; // 20% of grocery spend wasted
-const MAX_REDUCTION = 0.55; // up to 55% cut with full adoption
+const ADOPTION_RATE_POINTS = [
+  { ratio: 0, rate: 0.05 },
+  { ratio: 0.25, rate: 0.0594 },
+  { ratio: 2 / 7, rate: 0.066 },
+  { ratio: 1 / 3, rate: 0.066 },
+  { ratio: 0.5, rate: 0.0825 },
+  { ratio: 1, rate: 0.1925 },
+];
+
+const MAX_RATE = ADOPTION_RATE_POINTS[ADOPTION_RATE_POINTS.length - 1].rate;
+const DEFAULT_TRIPS_PER_MONTH = 1.2;
 
 export default function Savings() {
   const [members, setMembers] = useState(2);
@@ -12,13 +21,18 @@ export default function Savings() {
   const safeUsers = Math.min(users || 0, members || 0);
 
   const { monthly, yearly, cutPct } = useMemo(() => {
-    const adoption = Math.min(1, members ? safeUsers / members : 0);
-    const wasted = (budget || 0) * BASE_WASTE;
-    const saved = wasted * (MAX_REDUCTION * adoption);
+    const adoption = members ? safeUsers / members : 0;
+    const savingsRate = getSavingsRate(adoption);
+    const yearlySavings =
+      Math.max(0, budget || 0) *
+      DEFAULT_TRIPS_PER_MONTH *
+      12 *
+      savingsRate;
+
     return {
-      monthly: saved,
-      yearly: saved * 12,
-      cutPct: MAX_REDUCTION * adoption * 100,
+      monthly: yearlySavings / 12,
+      yearly: yearlySavings,
+      cutPct: (savingsRate / MAX_RATE) * 100,
     };
   }, [members, safeUsers, budget]);
 
@@ -31,11 +45,11 @@ export default function Savings() {
 
   return (
     <section id="savings" className="bg-transparent py-12">
-      <div className="max-w-content px-6 lg:pl-20 lg:pr-6">
+      <div className="max-w-content px-4 sm:px-6 lg:pl-20 lg:pr-6">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div className="card-elevated p-6 sm:p-8">
-            <div className="flex items-center justify-between gap-4">
-              <div>
+            <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+              <div className="max-w-md">
                 <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
                   Savings estimator
                 </p>
@@ -82,21 +96,22 @@ export default function Savings() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-brand-200 bg-brand-50/60 p-4 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-              <p>
-                Based on {Math.round(BASE_WASTE * 100)}% average household waste
-                and up to {Math.round(MAX_REDUCTION * 100)}% reduction with full
-                adoption.
+              <p className="text-center sm:text-left">
+                Uses the adoption-based savings curve from your planning sheet
+                (5% capture with minimal use up to 19.25% when everyone is on
+                ExpireSense) and assumes {DEFAULT_TRIPS_PER_MONTH} shopping
+                trips per month.
               </p>
               <a
                 href="#contact"
-                className="inline-block whitespace-nowrap px-2 py-0.5 text-xs text-[var(--brand-700)] border border-[var(--brand-300)] rounded hover:bg-[var(--brand-50)] transition"
+                className="inline-block self-center whitespace-nowrap px-3 py-1 text-xs text-[var(--brand-700)] border border-[var(--brand-300)] rounded transition hover:bg-[var(--brand-50)] sm:self-auto"
               >
                 Learn more
               </a>
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 text-center sm:text-left">
             <div className="card-elevated p-6">
               <h3 className="text-xl font-semibold text-slate-900">
                 How teams use this model
@@ -107,7 +122,7 @@ export default function Savings() {
                 Adjust the numbers as your team comes on board to keep forecasts
                 realistic.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-600">
+              <ul className="mt-4 space-y-2 text-left text-sm text-slate-600">
                 <li>• Forecast ROI before rollout.</li>
                 <li>• Track progress across locations.</li>
                 <li>• Share savings in quarterly reports.</li>
@@ -169,8 +184,8 @@ function CurrencyField({ label, value, onChange }) {
 
 function ResultCard({ title, primary, secondary, icon }) {
   return (
-    <div className="card-elevated flex items-center justify-between p-4">
-      <div>
+    <div className="card-elevated flex flex-col gap-3 p-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+      <div className="w-full">
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
           {title}
         </p>
@@ -178,10 +193,30 @@ function ResultCard({ title, primary, secondary, icon }) {
         {secondary && <p className="text-xs text-slate-500">{secondary}</p>}
       </div>
       {icon && (
-        <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 text-[var(--brand-600)]">
+        <span className="grid h-10 w-10 place-items-center self-center rounded-xl bg-brand-50 text-[var(--brand-600)] sm:self-auto">
           {icon}
         </span>
       )}
     </div>
   );
+}
+
+function getSavingsRate(adoptionRatio) {
+  if (!Number.isFinite(adoptionRatio) || adoptionRatio <= 0) {
+    return ADOPTION_RATE_POINTS[0].rate;
+  }
+
+  const clamped = Math.min(1, Math.max(0, adoptionRatio));
+
+  for (let i = 1; i < ADOPTION_RATE_POINTS.length; i += 1) {
+    const current = ADOPTION_RATE_POINTS[i];
+    if (clamped <= current.ratio) {
+      const prev = ADOPTION_RATE_POINTS[i - 1];
+      const span = current.ratio - prev.ratio || 1;
+      const t = (clamped - prev.ratio) / span;
+      return prev.rate + (current.rate - prev.rate) * t;
+    }
+  }
+
+  return MAX_RATE;
 }

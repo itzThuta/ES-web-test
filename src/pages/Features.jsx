@@ -4,15 +4,7 @@ import { FiActivity, FiCheckCircle, FiCloud, FiSliders } from "react-icons/fi";
 import FeatureShowcase from "../components/FeatureShowcase";
 import HowItWorks from "../components/HowItWorks";
 import Savings from "../components/Savings";
-
-const fade = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+import { popIn, slideUp } from "../utils/motionPresets";
 
 // const operatingPillars = [
 //   {
@@ -48,10 +40,10 @@ export default function Features() {
       <section className="relative overflow-hidden hero-surface pt-28 pb-24">
         <div className="relative mx-auto max-w-content text-center">
           <motion.div
-            variants={fade}
+            variants={slideUp(0.05)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.4 }}
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
               Feature deep dive
@@ -70,7 +62,7 @@ export default function Features() {
 
       {/* Feature showcase */}
       <motion.section
-        variants={fade}
+        variants={popIn(0.08)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
@@ -82,7 +74,7 @@ export default function Features() {
       <section className="surface-gradient">
         <div className="mx-auto max-w-content">
           <motion.div
-            variants={fade}
+            variants={slideUp(0.05)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -126,17 +118,17 @@ export default function Features() {
 
       {/* Savings calculator */}
       <motion.section
-        variants={fade}
+        variants={slideUp(0.05)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <Savings />
       </motion.section>
 
       {/* How it works */}
       {/* <motion.section
-        variants={fade}
+        variants={slideUp(0.05)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}

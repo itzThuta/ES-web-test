@@ -1,14 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-
-const fade = {
-  hidden: { opacity: 0, y: 32 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: "easeOut" },
-  },
-};
+import { popIn, slideUp, staggerChildren } from "../utils/motionPresets";
 
 export default function HowItWorks() {
   const steps = [
@@ -53,10 +45,10 @@ export default function HowItWorks() {
       <div className="max-w-6xl mx-auto px-6 relative">
         {/* Header */}
         <motion.div
-          variants={fade}
+          variants={slideUp(0.05)}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.35 }}
           className="text-center mb-14"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)] shadow-sm">
@@ -72,17 +64,20 @@ export default function HowItWorks() {
         </motion.div>
 
         {/* Steps */}
-        <div className="grid gap-10 sm:gap-12 md:grid-cols-2">
+        <motion.div
+          variants={staggerChildren(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid gap-10 sm:gap-12 md:grid-cols-2"
+        >
           {steps.map((step, i) => {
             const IconEl = step.Icon;
             return (
               <motion.div
                 key={i}
-                variants={fade}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ delay: i * 0.05 }}
+                variants={popIn(i * 0.05)}
+                whileHover={{ translateY: -6 }}
                 className="flex items-start gap-4 sm:gap-6 group"
               >
                 {/* Number & icon */}
@@ -107,7 +102,7 @@ export default function HowItWorks() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

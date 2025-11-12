@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FaChartLine, FaHandshake, FaLeaf } from "react-icons/fa6";
 import Benefits from "../components/Benefits";
+import { popIn, slideUp, staggerChildren } from "../utils/motionPresets";
 
 const metrics = [
   { label: "Average waste cut", value: "35%", description: "within the first 90 days across pilot teams" },
@@ -27,21 +28,16 @@ const differentiators = [
   },
 ];
 
-const fade = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
 export default function WhyUs() {
   return (
     <div className="space-y-20 pb-20">
       <section className="relative overflow-hidden hero-surface pt-28 pb-20">
         <div className="relative mx-auto max-w-content">
           <motion.div
-            variants={fade}
+            variants={slideUp(0.05)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.35 }}
             className="text-center"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
@@ -56,11 +52,17 @@ export default function WhyUs() {
             </p>
           </motion.div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          <motion.div
+            variants={staggerChildren(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="mt-12 grid gap-6 sm:grid-cols-3"
+          >
             {metrics.map((metric) => (
               <motion.div
                 key={metric.label}
-                variants={fade}
+                variants={popIn(0.05)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
@@ -71,17 +73,17 @@ export default function WhyUs() {
                 <p className="mt-2 text-sm text-slate-500">{metric.description}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="bg-gradient">
         <div className="mx-auto max-w-content">
           <motion.div
-            variants={fade}
+            variants={slideUp(0.05)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.35 }}
             className="text-center"
           >
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
@@ -93,17 +95,22 @@ export default function WhyUs() {
             </p>
           </motion.div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <motion.div
+            variants={staggerChildren(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="mt-12 grid gap-6 md:grid-cols-3"
+          >
             {differentiators.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <motion.article
                   key={item.title}
-                  variants={fade}
+                  variants={popIn(idx * 0.05)}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
                   className="card-elevated flex flex-col gap-4 p-6"
                 >
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-[var(--brand-600)]">
@@ -114,7 +121,7 @@ export default function WhyUs() {
                 </motion.article>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
