@@ -47,7 +47,6 @@ export default function Navbar() {
   const featureDropdown = [
     { to: "/features", label: "Feature Showcase" },
     { to: "/saving-calculator", label: "Saving Calculator" },
-    { to: "/features", label: "Benefits" },
   ];
 
   const dropdownItems = useMemo(
@@ -94,20 +93,22 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-8 lg:gap-12">
             {links.map((link) => {
               const showDropdown = hovered === link.label && dropdownItems[link.label];
+              const dropdownMatch =
+                dropdownItems[link.label]?.some((item) =>
+                  location.pathname.startsWith(item.to)
+                ) || false;
               return (
                 <li
                   key={link.to}
                   className="relative"
-                  onMouseEnter={() =>
-                    dropdownItems[link.label] ? setHovered(link.label) : setHovered(null)
-                  }
+                  onMouseEnter={() => setHovered(link.label)}
                   onMouseLeave={() => setHovered(null)}
                 >
                   <NavLink
                     to={link.to}
                     className={({ isActive }) =>
                       `relative px-1 text-base lg:text-[17px] font-medium transition-colors ${
-                        isActive
+                        isActive || dropdownMatch
                           ? "text-[var(--brand-700)]"
                           : "text-slate-600 hover:text-[var(--brand-600)]"
                       }`
@@ -116,7 +117,7 @@ export default function Navbar() {
                     {({ isActive }) => (
                       <>
                         <span className="relative z-10">{link.label}</span>
-                        {(isActive || hovered === link.label) && (
+                        {(isActive || dropdownMatch || hovered === link.label) && (
                           <motion.span
                             layoutId="nav-underline"
                             className="absolute left-0 right-0 -bottom-1 h-[3px] rounded-full bg-[var(--brand-600)]"
@@ -205,37 +206,43 @@ export default function Navbar() {
                 </span>
               </div>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.to}>
-                    <NavLink
-                      to={link.to}
-                      onClick={() => setOpen(false)}
-                      className={({ isActive }) =>
-                        `block rounded-2xl px-4 py-3 text-base font-semibold transition ${
-                          isActive
-                            ? "bg-brand-50 text-[var(--brand-700)] ring-1 ring-[var(--brand-200)]"
-                            : "text-slate-700 hover:bg-white hover:text-[var(--brand-600)]"
-                        }`
-                      }
-                    >
-                      {link.label}
-                    </NavLink>
-                    {dropdownItems[link.label] && (
-                      <div className="mt-2 grid gap-1 pl-4">
-                        {dropdownItems[link.label].map((item) => (
-                          <NavLink
-                            key={item.to}
-                            to={item.to}
-                            onClick={() => setOpen(false)}
-                            className="rounded-xl px-3 py-2 text-sm font-medium text-slate-500 transition hover:bg-brand-50 hover:text-[var(--brand-600)]"
-                          >
-                            {item.label}
-                          </NavLink>
-                        ))}
-                      </div>
-                    )}
-                  </li>
-                ))}
+                {links.map((link) => {
+                  const dropdownMatch =
+                    dropdownItems[link.label]?.some((item) =>
+                      location.pathname.startsWith(item.to)
+                    ) || false;
+                  return (
+                    <li key={link.to}>
+                      <NavLink
+                        to={link.to}
+                        onClick={() => setOpen(false)}
+                        className={({ isActive }) =>
+                          `block rounded-2xl px-4 py-3 text-base font-semibold transition ${
+                            isActive || dropdownMatch
+                              ? "bg-brand-50 text-[var(--brand-700)] ring-1 ring-[var(--brand-200)]"
+                              : "text-slate-700 hover:bg-white hover:text-[var(--brand-600)]"
+                          }`
+                        }
+                      >
+                        {link.label}
+                      </NavLink>
+                      {dropdownItems[link.label] && (
+                        <div className="mt-2 grid gap-1 pl-4">
+                          {dropdownItems[link.label].map((item) => (
+                            <NavLink
+                              key={item.to}
+                              to={item.to}
+                              onClick={() => setOpen(false)}
+                              className="rounded-xl px-3 py-2 text-sm font-medium text-slate-500 transition hover:bg-brand-50 hover:text-[var(--brand-600)]"
+                            >
+                              {item.label}
+                            </NavLink>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </motion.div>

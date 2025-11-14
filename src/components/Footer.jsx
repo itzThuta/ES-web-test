@@ -42,18 +42,18 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                to="/about"
-                className="transition hover:text-[var(--brand-600)]"
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/blog"
                 className="transition hover:text-[var(--brand-600)]"
               >
                 Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/subscription"
+                className="transition hover:text-[var(--brand-600)]"
+              >
+               Subscription
               </Link>
             </li>
             <li>

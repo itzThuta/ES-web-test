@@ -16,6 +16,10 @@
      --brand-900: #1c4740;
      --brand-night: #0f2d29;
      --brand-glow: rgba(54,148,134,0.18);
+     --whyus-gradient:
+       radial-gradient(140% 150% at 18% -15%, rgba(54,148,134,0.12), transparent 60%),
+       radial-gradient(110% 130% at 82% 0%, rgba(13,35,33,0.08), transparent 68%),
+       linear-gradient(180deg, #fbfdfc, #eef4f1);
      --carrot:    #dd7a4a;
    }
    
@@ -56,7 +60,12 @@
      .surface-muted {
        background: linear-gradient(180deg, rgba(19,38,35,0.05), rgba(19,38,35,0));
      }
-   
+
+     .whyus-gradient,
+     .whyus-page {
+       background: var(--whyus-gradient);
+     }
+
      .shadow-soft {
        box-shadow: 0 18px 40px -24px rgba(12, 32, 29, 0.35);
      }

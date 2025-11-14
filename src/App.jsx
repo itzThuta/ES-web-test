@@ -68,6 +68,7 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/ContactUs";
 import Subscription from "./pages/Subscription";
 import Savings from "./components/Savings";
+import Privacy from "./pages/Privacy";
 
 export default function App() {
   return (
@@ -88,6 +89,7 @@ export default function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/saving-calculator" element={<Savings />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
 

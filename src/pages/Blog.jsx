@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaClock, FaTag } from "react-icons/fa";
 import { blogPosts } from "../data/blogPosts";
-import { fadeIn, popIn, slideUp, staggerChildren } from "../utils/motionPresets";
+import {
+  // eslint-disable-next-line no-unused-vars
+  fadeIn,
+  popIn,
+  slideUp,
+  staggerChildren,
+} from "../utils/motionPresets";
 
 export default function Blog() {
   const groupedByTag = useMemo(() => {
@@ -30,8 +36,8 @@ export default function Blog() {
             Inside the ExpireSense kitchen
           </h1>
           <p className="mt-4 mx-auto max-w-2xl text-base sm:text-lg text-slate-600 sm:mx-0">
-            Practical tips, product deep dives, and sustainability spotlights to
-            help your home or business save more while wasting less.
+            Real stories, smart tips, and sustainability insights to help you
+            cut waste and save more.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4 sm:justify-start">
             <Link
@@ -113,9 +119,9 @@ export default function Blog() {
               viewport={{ once: true, amount: 0.3 }}
               className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
             >
-            <h2 className="text-lg font-semibold text-slate-900">
-              Subscribe for fresh ideas
-            </h2>
+              <h2 className="text-lg font-semibold text-slate-900">
+                Subscribe for fresh ideas
+              </h2>
               <p className="mt-2 text-sm text-slate-600">
                 One thoughtful email each month with actionable tactics and case
                 studies from the ExpireSense community.
@@ -153,16 +159,16 @@ export default function Blog() {
                 {Object.entries(groupedByTag)
                   .sort(([, countA], [, countB]) => countB - countA)
                   .map(([tag, count]) => (
-                  <li
-                    key={tag}
-                    className="flex items-center justify-between rounded-xl border border-transparent px-3 py-2 transition hover:border-brand-200 hover:bg-brand-50/60"
-                  >
-                    <span>{tag}</span>
-                    <span className="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-semibold text-[var(--brand-700)]">
-                      {count}
-                    </span>
-                  </li>
-                ))}
+                    <li
+                      key={tag}
+                      className="flex items-center justify-between rounded-xl border border-transparent px-3 py-2 transition hover:border-brand-200 hover:bg-brand-50/60"
+                    >
+                      <span>{tag}</span>
+                      <span className="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-semibold text-[var(--brand-700)]">
+                        {count}
+                      </span>
+                    </li>
+                  ))}
               </ul>
             </motion.div>
 

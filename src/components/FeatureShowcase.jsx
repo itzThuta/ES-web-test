@@ -2,9 +2,21 @@ import { useEffect, useMemo, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, useSpring } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-import { FiBell, FiBookOpen, FiCamera, FiCheckCircle, FiLayers, FiTrendingUp } from "react-icons/fi";
+import {
+  FiBell,
+  FiBookOpen,
+  FiCamera,
+  FiCheckCircle,
+  FiLayers,
+  FiTrendingUp,
+} from "react-icons/fi";
 
-import { fadeIn, popIn, slideUp, staggerChildren } from "../utils/motionPresets";
+import {
+  fadeIn,
+  popIn,
+  slideUp,
+  staggerChildren,
+} from "../utils/motionPresets";
 
 import shoppingImg from "../assets/2.png";
 import inventoryImg from "../assets/1.png";
@@ -16,18 +28,15 @@ const STEPS = [
   {
     title: "Capture in seconds",
     description:
-      "Snap a receipt or scan a barcode. ExpireSense recognises items instantly so the whole pantry is ready to track.",
+      "Scan it or type it, ExpireSense recognizes everything in seconds,setting up your pantry for smart tracking.",
     icon: FiCamera,
     visual: shoppingImg,
-    highlights: [
-      "OCR captures receipts with >98% accuracy",
-      "Barcode mode auto-fills categories instantly",
-    ],
+    highlights: ["OCR captures receipts with >98% accuracy"],
   },
   {
-    title: "Organise effortlessly",
+    title: "Organize effortlessly",
     description:
-      "Items slot into fridge, freezer, or pantry with smart defaults and shared access for everyone in your space.",
+      "Items are automatically sorted into your fridge, freezer, or pantry with smart defaults for easy tracking.",
     icon: FiLayers,
     visual: inventoryImg,
     highlights: [
@@ -38,7 +47,7 @@ const STEPS = [
   {
     title: "Let reminders do the work",
     description:
-      "Friendly nudges land before food spoils. Snooze, freeze, or cook suggestions keep waste close to zero.",
+      "Smart reminders before food spoils. Cook it, freeze it, or save it just in time.",
     icon: FiBell,
     visual: expiryImg,
     highlights: [
@@ -47,9 +56,9 @@ const STEPS = [
     ],
   },
   {
-    title: "Cook with confidence",
+    title: "Turn what’s left into what’s next",
     description:
-      "Use-up recipe ideas combine what is on hand with what is about to expire so meal planning stays simple.",
+      "Get recipe ideas that use up ingredients before they expire — turning waste into delicious meals.",
     icon: FiBookOpen,
     visual: recipesImg,
     highlights: [
@@ -58,9 +67,9 @@ const STEPS = [
     ],
   },
   {
-    title: "Plan once, enjoy often",
+    title: "Follow & Cook",
     description:
-      "Weekly views highlight wins, savings, and sustainability gains to keep the whole team motivated.",
+      "Step-by-step guidance to cook your ingredients before they expire.",
     icon: FiTrendingUp,
     visual: plannerImg,
     highlights: [
@@ -76,7 +85,11 @@ export default function FeatureShowcase() {
 
   const activeStep = STEPS[index];
   const progress = useMemo(() => (index + 1) / STEPS.length, [index]);
-  const progressSpring = useSpring(progress, { stiffness: 180, damping: 24, mass: 0.25 });
+  const progressSpring = useSpring(progress, {
+    stiffness: 180,
+    damping: 24,
+    mass: 0.25,
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -85,7 +98,8 @@ export default function FeatureShowcase() {
     return () => clearInterval(timer);
   }, [paused]);
 
-  const goTo = (nextIndex) => setIndex((nextIndex + STEPS.length) % STEPS.length);
+  const goTo = (nextIndex) =>
+    setIndex((nextIndex + STEPS.length) % STEPS.length);
   const ActiveIcon = activeStep.icon;
 
   return (
@@ -160,10 +174,10 @@ export default function FeatureShowcase() {
                   </span>
                 ))}
               </div>
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              {/* <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
                 <span>Focus: {activeStep.title}</span>
                 <span>Use the controls to explore the tour</span>
-              </div>
+              </div> */}
             </motion.div>
 
             <motion.div
@@ -178,10 +192,10 @@ export default function FeatureShowcase() {
                 <FaArrowLeft className="h-4 w-4" />
                 <span>Previous</span>
               </button>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                      Progress
-                    </span>
+              <div className="flex items-center gap-3">
+                {/* <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Progress
+                </span> */}
                 <div className="relative h-1.5 w-32 overflow-hidden rounded-full bg-brand-50">
                   <motion.span
                     className="absolute inset-y-0 left-0 origin-left rounded-full bg-gradient-to-r from-[var(--brand-600)] via-[var(--brand-500)] to-[var(--brand-600)]"
@@ -219,13 +233,17 @@ export default function FeatureShowcase() {
                     >
                       <span
                         className={`flex h-10 w-10 items-center justify-center rounded-xl ${
-                          isActive ? "bg-brand-100 text-[var(--brand-700)]" : "bg-slate-100 text-slate-500"
+                          isActive
+                            ? "bg-brand-100 text-[var(--brand-700)]"
+                            : "bg-slate-100 text-slate-500"
                         }`}
                       >
                         <Icon className="h-4 w-4" />
                       </span>
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">{step.title}</p>
+                        <p className="text-sm font-semibold text-slate-900">
+                          {step.title}
+                        </p>
                         <p className="text-xs text-slate-500">
                           Step {stepIndex + 1}
                         </p>

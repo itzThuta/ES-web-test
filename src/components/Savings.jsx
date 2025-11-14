@@ -24,10 +24,7 @@ export default function Savings() {
     const adoption = members ? safeUsers / members : 0;
     const savingsRate = getSavingsRate(adoption);
     const yearlySavings =
-      Math.max(0, budget || 0) *
-      DEFAULT_TRIPS_PER_MONTH *
-      12 *
-      savingsRate;
+      Math.max(0, budget || 0) * DEFAULT_TRIPS_PER_MONTH * 12 * savingsRate;
 
     return {
       monthly: yearlySavings / 12,
@@ -36,12 +33,7 @@ export default function Savings() {
     };
   }, [members, safeUsers, budget]);
 
-  const fmt = (n) =>
-    new Intl.NumberFormat(undefined, {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(n || 0);
+  const fmt = (n) => formatCurrency(n || 0);
 
   return (
     <section id="savings" className="bg-transparent py-12">
@@ -86,7 +78,7 @@ export default function Savings() {
               <ResultCard
                 title="Estimated yearly savings"
                 primary={fmt(yearly)}
-                secondary={`≈ ${fmt(monthly)} / month`}
+                secondary={`${fmt(monthly)} / month`}
               />
               <ResultCard
                 title="Projected waste reduction"
@@ -114,18 +106,17 @@ export default function Savings() {
           <div className="space-y-6 text-center sm:text-left">
             <div className="card-elevated p-6">
               <h3 className="text-xl font-semibold text-slate-900">
-                How teams use this model
+                How you can use this model
               </h3>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                Combine inventory adoption rates with historic spend to show
-                finance leaders the savings tied to ExpireSense roll-outs.
-                Adjust the numbers as your team comes on board to keep forecasts
-                realistic.
+                Use your pantry and spending history to estimate savings and
+                track progress over time. Adjust as you track your items to keep
+                your forecast realistic.
               </p>
               <ul className="mt-4 space-y-2 text-left text-sm text-slate-600">
-                <li>• Forecast ROI before rollout.</li>
-                <li>• Track progress across locations.</li>
-                <li>• Share savings in quarterly reports.</li>
+                <li>• Forecast your savings before trying.</li>
+                <li>• Track your progress.</li>
+                <li>• Celebrate your waste reduction and money saved.</li>
               </ul>
             </div>
 
@@ -162,6 +153,10 @@ function Field({ label, value, onChange }) {
 }
 
 function CurrencyField({ label, value, onChange }) {
+  const numericValue =
+    Number.isFinite(value) && value !== null ? Number(value) : "";
+  const { fontSize, letterSpacing } = getDynamicInputSizing(value);
+
   return (
     <label className="flex flex-col text-sm font-medium text-slate-600 sm:col-span-2">
       {label}
@@ -173,9 +168,10 @@ function CurrencyField({ label, value, onChange }) {
           type="number"
           min={0}
           step={10}
-          value={value}
+          value={numericValue}
           onChange={(event) => onChange(Number(event.target.value || 0))}
-          className="input pl-7 py-2 text-sm"
+          className="input pl-7 py-2 text-sm font-mono tracking-tight"
+          style={{ fontSize, letterSpacing }}
         />
       </div>
     </label>
@@ -189,8 +185,19 @@ function ResultCard({ title, primary, secondary, icon }) {
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
           {title}
         </p>
-        <p className="mt-2 text-2xl font-bold text-slate-900">{primary}</p>
-        {secondary && <p className="text-xs text-slate-500">{secondary}</p>}
+        <p className="mt-2 break-words text-2xl font-bold leading-tight text-slate-900">
+          {primary}
+        </p>
+        {secondary && (
+          <p className="mt-2 text-xs text-slate-500">
+            <span className="inline-flex max-w-full items-center gap-1 rounded-full bg-slate-100 px-2 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-slate-500">
+              approx: 
+              <span className="font-mono text-[0.7rem] font-normal lowercase text-slate-700 tracking-tight break-all">
+                {secondary}
+              </span>
+            </span>
+          </p>
+        )}
       </div>
       {icon && (
         <span className="grid h-10 w-10 place-items-center self-center rounded-xl bg-brand-50 text-[var(--brand-600)] sm:self-auto">
@@ -219,4 +226,37 @@ function getSavingsRate(adoptionRatio) {
   }
 
   return MAX_RATE;
+}
+
+function getDynamicInputSizing(value) {
+  const digits = Math.max(
+    String(Math.floor(Math.abs(Number(value) || 0))).length,
+    1
+  );
+
+  if (digits > 24) {
+    return { fontSize: "0.55rem", letterSpacing: "-0.025em" };
+  }
+  if (digits > 20) {
+    return { fontSize: "0.6rem", letterSpacing: "-0.02em" };
+  }
+  if (digits > 16) {
+    return { fontSize: "0.7rem", letterSpacing: "-0.015em" };
+  }
+  if (digits > 12) {
+    return { fontSize: "0.8rem", letterSpacing: "-0.008em" };
+  }
+  return { fontSize: "0.875rem", letterSpacing: "0" };
+}
+
+function formatCurrency(value) {
+  const numericValue = Number.isFinite(value) ? value : 0;
+  const useCompact = Math.abs(numericValue) >= 1000;
+
+  return new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency: "USD",
+    notation: useCompact ? "compact" : "standard",
+    maximumFractionDigits: useCompact ? 1 : 0,
+  }).format(numericValue);
 }

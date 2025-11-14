@@ -8,7 +8,7 @@ import {
   FaUsers,
   FaUtensils,
 } from "react-icons/fa";
-import heroBag from "../assets/grocery.png";
+import logo from "../assets/logo.png";
 
 // Variants for animation
 const fade = (dir = "up", delay = 0) => {
@@ -26,21 +26,45 @@ const fade = (dir = "up", delay = 0) => {
 };
 
 const points = [
-  { icon: FaLeaf, title: "Cut food waste", body: "Stay ahead of expiry dates so you use more of what you buy and throw away less." },
-  { icon: FaMoneyBillWave, title: "Spend smarter", body: "Fewer duplicate purchases and fewer spoiled items means real savings each month." },
-  { icon: FaBell, title: "Right-time reminders", body: "Notifications before items spoil help you plan meals or freeze things in time." },
-  { icon: FaBarcode, title: "Add in seconds", body: "Scan receipts or barcodes to populate items fast — no tedious typing." },
-  { icon: FaUsers, title: "Shared lists", body: "Keep the whole household in sync on what to buy (and what not to)." },
-  { icon: FaUtensils, title: "Use-up ideas", body: "Recipe suggestions tailored to what’s close to expiring in your kitchen." },
+  {
+    icon: FaLeaf,
+    title: "Cut food waste",
+    body: "Know what’s expiring, use it in time, and throw away less food.",
+  },
+  {
+    icon: FaMoneyBillWave,
+    title: "Spend smarter",
+    body: "Using more of what you buy and wasting less means real savings every month.",
+  },
+  {
+    icon: FaBell,
+    title: "Right-time reminders",
+    body: "Notifications before food goes bad help you cook, freeze, or use it before it’s too late.",
+  },
+  {
+    icon: FaBarcode,
+    title: "Add in seconds",
+    body: "Scan receipts to add items quickly and keep your pantry up to date.",
+  },
+  {
+    icon: FaUsers,
+    title: "Aligned with a Greener Future",
+    body: " Designed to reduce waste, save money, and support a greener planet.",
+  },
+  {
+    icon: FaUtensils,
+    title: "Turn Ingredients into Meals",
+    body: "Recipe suggestions tailored to what’s close to expiring in your kitchen.",
+  },
 ];
 
 export default function Benefits({ id = "benefits", className = "" }) {
   return (
     <section
       id={id}
-      className={`relative overflow-hidden py-16 bg-transparent ${className}`}
+      className={`relative overflow-hidden py-16 ${className}`}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--brand-50),transparent_75%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(54,148,134,0.12),transparent_75%)]" />
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         {/* Heading */}
         <motion.h2
@@ -48,7 +72,7 @@ export default function Benefits({ id = "benefits", className = "" }) {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-        className="text-2xl md:text-3xl font-bold text-slate-900"
+          className="text-2xl md:text-3xl font-bold text-slate-900"
         >
           Why <span className="text-teal-600">ExpireSense?</span>
         </motion.h2>
@@ -59,8 +83,8 @@ export default function Benefits({ id = "benefits", className = "" }) {
           viewport={{ once: true }}
           className="mt-3 text-slate-600 max-w-2xl mx-auto text-sm md:text-base"
         >
-          Smarter kitchens. Less waste. More savings. Discover why thousands
-          choose us to reduce food waste and make sustainable choices.
+          Make your kitchen work for you: reduce waste, save money, and turn
+          ingredients into meals you’ll love.
         </motion.p>
 
         {/* Layout */}
@@ -103,9 +127,9 @@ export default function Benefits({ id = "benefits", className = "" }) {
             className="flex justify-center"
           >
             <img
-              src={heroBag}
+              src={logo}
               alt="Why ExpireSense"
-              className="max-w-[220px] sm:max-w-[280px] lg:max-w-[360px] object-contain"
+              className="max-w-[160px] sm:max-w-[220px] lg:max-w-[260px] object-contain"
             />
           </motion.div>
 
@@ -148,7 +172,7 @@ export default function Benefits({ id = "benefits", className = "" }) {
           className="mt-10"
         >
           <a
-            href="#how-it-works"
+            href="#features"
             className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-6 py-3 font-medium text-[var(--brand-700)] transition hover:border-[var(--brand-300)] hover:bg-brand-50"
           >
             See how it works
