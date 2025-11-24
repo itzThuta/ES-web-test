@@ -154,8 +154,8 @@ export default function Contact() {
                   {
                     icon: <FaPhoneAlt />,
                     label: "Phone",
-                    value: "+66 234 567 890",
-                    href: "tel:+66234567890",
+                    value: "+66 (0) 8 1119 9612",
+                    href: "tel:+660811199612",
                   },
                   {
                     icon: <FaMapMarkerAlt />,
@@ -275,7 +275,7 @@ export default function Contact() {
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <label className="text-sm font-semibold text-slate-600">
-                Name
+                Name <span className="text-red-500" aria-hidden="true">*</span>
                 <input
                   type="text"
                   name="name"
@@ -298,7 +298,7 @@ export default function Contact() {
                 )}
               </label>
               <label className="text-sm font-semibold text-slate-600">
-                Email
+                Email <span className="text-red-500" aria-hidden="true">*</span>
                 <input
                   type="email"
                   name="email"
@@ -329,7 +329,7 @@ export default function Contact() {
                 />
               </label>
               <label className="text-sm font-semibold text-slate-600">
-                Phone
+                Phone <span className="text-red-500" aria-hidden="true">*</span>
                 <input
                   type="tel"
                   name="phone"
@@ -387,7 +387,10 @@ export default function Contact() {
             </div>
 
             <label className="mt-4 block text-sm font-semibold text-slate-600">
-              Message
+              Message{" "}
+              <span className="text-red-500" aria-hidden="true">
+                *
+              </span>
               <textarea
                 name="message"
                 required
