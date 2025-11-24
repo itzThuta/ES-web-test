@@ -1,120 +1,114 @@
-import heroImage from "../assets/team.png";
-
 export const blogPosts = [
   {
-    slug: "food-waste-rituals",
-    title: "5 rituals to halve your weekly food waste",
+    slug: "startup-grind-community-choice",
+    title: "How we won Community Choice at Startup Grind Bangkok",
     excerpt:
-      "From batch prep to smarter leftovers, these five micro-habits help households reduce waste without adding extra work.",
-    tag: "Households",
-    readingTime: "6 min read",
-    date: "May 9, 2024",
-    author: "Kai Turner",
-    hero: heroImage,
-    sections: [
-      {
-        heading: "1. Inventory reset every Sunday",
-        body: "Spend ten minutes checking pantry, fridge, and freezer shelves. Note items that need attention and assign them to upcoming meals. ExpireSense makes this a tap-and-drag action, so the list stays dynamic through the week.",
-      },
-      {
-        heading: "2. First-in-first-out lunchbox",
-        body: "Keep a dedicated basket for 'eat next' items—think berries that are ripening or leftovers from two days ago. Add them to your lunch bag first, and let ExpireSense remind you if something gets forgotten.",
-      },
-      {
-        heading: "3. Mid-week rescue cook",
-        body: "Choose one evening to remix ingredients that are nearing expiry. Use the app’s recipe suggestions to save planning time. Households report this ritual alone cuts waste by nearly 15%.",
-      },
-      {
-        heading: "4. Shared grocery intent",
-        body: "Before any grocery run, sync with your household using the shared inventory list. Duplicate purchases plummet, and everyone understands what already exists at home.",
-      },
-      {
-        heading: "5. Freeze smart, not hard",
-        body: "If plans shift, freeze items with date tags so they re-enter the rotation with new reminders. One tap in ExpireSense updates the status for everyone, keeping the freezer tidy and useful.",
-      },
-    ],
-    conclusion:
-      "Habit loops don’t need to be complicated. Start with one ritual this month and let your progress inspire the next change. The result is calmer kitchens, happier budgets, and ingredients that always get used in time.",
-  },
-  {
-    slug: "ocr-inventory-pipeline",
-    title: "How ExpireSense OCR keeps kitchen inventory up-to-date",
-    excerpt:
-      "A look behind the scenes at our receipt scanning pipeline, and how we nudge accurate expiry suggestions with minimal input.",
-    tag: "Product",
-    readingTime: "8 min read",
-    date: "Apr 26, 2024",
-    author: "Juji Phrom",
-    hero: heroImage,
-    sections: [
-      {
-        heading: "Receipt capture",
-        body: "We map each receipt line item to recognised products within milliseconds and suggest defaults based on region and purchase history.",
-      },
-      {
-        heading: "Confidence scoring",
-        body: "The system flags uncertain matches for a quick review. Most corrections take under five seconds thanks to smart defaults.",
-      },
-      {
-        heading: "Learning over time",
-        body: "Every confirmation improves future predictions, so ExpireSense becomes more personalised with each grocery trip.",
-      },
-    ],
-    conclusion:
-      "By combining computer vision, smart defaults, and human-friendly confirmations, our OCR pipeline stays accurate without adding to your workload.",
-  },
-  {
-    slug: "sustainability-metrics-2024",
-    title: "Sustainability metrics your restaurant should track in 2024",
-    excerpt:
-      "Waste per cover, inventory turnover, and guest impact: the KPIs modern kitchens monitor to stay profitable and planet-friendly.",
-    tag: "Hospitality",
-    readingTime: "7 min read",
-    date: "Apr 2, 2024",
-    author: "Sophie Lin",
-    hero: heroImage,
-    sections: [
-      {
-        heading: "Waste per cover",
-        body: "Track total kitchen waste divided by covers served. A transparent baseline helps your team celebrate improvements.",
-      },
-      {
-        heading: "Inventory turnover",
-        body: "Balance is everything—too high and you risk stockouts, too low and spoilage climbs. Automated alerts keep you on target.",
-      },
-      {
-        heading: "Guest impact stories",
-        body: "Bring customers along the journey. Showcase rescued meals, seasonal menus, or donation stats to build loyalty.",
-      },
-    ],
-    conclusion:
-      "Measure what matters, automate the tracking, and focus on the actions that keep your kitchen sustainable and profitable.",
-  },
-  {
-    slug: "expiresense-beta-community",
-    title: "Inside the ExpireSense beta community",
-    excerpt:
-      "Meet the hotels, campuses, and families shaping our roadmap with hands-on feedback and creative use cases.",
+      "Three days of pitching, customer interviews, and food waste stories that earned ExpireSense the Community Choice award.",
     tag: "Community",
-    readingTime: "5 min read",
-    date: "Mar 17, 2024",
-    author: "James Okafor",
-    hero: heroImage,
+    readingTime: "4 min read",
+    date: "Jun 2, 2024",
+    author: "ExpireSense Team",
+    hero:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
     sections: [
       {
-        heading: "Why a community beta?",
-        body: "We wanted diverse perspectives—from single parents to hotel chains—to stress-test real-world scenarios.",
+        heading: "Why we showed up",
+        body: "We wanted to validate that ExpireSense resonates beyond kitchen ops teams. Startup Grind let us speak with founders, chefs, and sustainability leads who all face the same pain: ingredients expiring quietly in cold rooms.",
       },
       {
-        heading: "Feedback loops built-in",
-        body: "Weekly office hours and in-app prompts mean ideas go from concept to feature quickly, with measurable impact.",
+        heading: "Proof that mattered",
+        body: "The conversations that moved judges were grounded in numbers. One Bangkok café shared that after two weeks on ExpireSense they dropped pastry waste by 18% by simply rotating their prep list based on our expiry alerts.",
       },
       {
-        heading: "What’s next",
-        body: "Expect enhanced analytics, deeper integrations, and more localisation based on what our community asks for next.",
+        heading: "What happens next",
+        body: "The award gave us new pilots with hotels and campus kitchens. We’re rolling out carbon-equivalent reporting so teams can show both budget savings and emissions avoided—data that keeps sustainability programs funded.",
       },
     ],
     conclusion:
-      "We’re grateful to build alongside the people who rely on ExpireSense daily. Their insights shape the product you see today.",
+      "Awards are nice, but the real win is seeing good food stay in circulation. If you want to run a pilot with us, reach out—we’re ready to help you prove impact fast.",
+  },
+  {
+    slug: "hotel-buffets-cut-waste",
+    title: "How Bangkok hotels trimmed buffet waste by 32%",
+    excerpt:
+      "Portion planning, live inventory updates, and donation-ready trays kept breakfast lines full while cutting trash runs almost in half.",
+    tag: "Hospitality",
+    readingTime: "6 min read",
+    date: "May 12, 2024",
+    author: "ExpireSense Team",
+    hero:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+    sections: [
+      {
+        heading: "Tally what guests really eat",
+        body: "Using ExpireSense, chefs logged plate returns and paired them with prep volumes. Within a week they saw boiled rice and fruit platters were consistently over-prepped for weekday mornings.",
+      },
+      {
+        heading: "Prep lists that adapt",
+        body: "The kitchen now starts with smaller trays and refreshes based on live covers instead of preset bulk batches. Expiry-aware timers nudge staff to rotate trays before the quality drops.",
+      },
+      {
+        heading: "Rescue the surplus",
+        body: "Leftover pastries move to a donation partner within 90 minutes. The hotel tracks every kilogram through ExpireSense, turning sustainability reports into a single export for corporate HQ.",
+      },
+    ],
+    conclusion:
+      "The result: 32% less buffet waste, happier guests, and a kitchen team that can show precise savings in baht and CO₂e every month.",
+  },
+  {
+    slug: "family-meal-plans-that-work",
+    title: "Family meal plans that actually reduce waste",
+    excerpt:
+      "Real households shared how aligning receipts, expiry alerts, and Sunday prep made their grocery budget last longer.",
+    tag: "Households",
+    readingTime: "5 min read",
+    date: "Apr 30, 2024",
+    author: "ExpireSense Team",
+    hero:
+      "https://images.unsplash.com/photo-1478144592103-25e218a04891?auto=format&fit=crop&w=1600&q=80",
+    sections: [
+      {
+        heading: "Start with the receipts",
+        body: "Families scan grocery slips on the drive home. ExpireSense turns them into a pantry list with suggested expiry dates based on local climate and storage habits.",
+      },
+      {
+        heading: "One shared prep ritual",
+        body: "On Sundays, ingredients that expire first become lunch kits and smoothie packs. Kids help tag containers so everyone knows what to grab first during the week.",
+      },
+      {
+        heading: "Celebrate the wins",
+        body: "Households in our beta saved an average of ฿1,200 per month by reclaiming leftovers and stopping duplicate buys. The app shows saved meals and emissions avoided so the habit sticks.",
+      },
+    ],
+    conclusion:
+      "If your fridge feels like a mystery box, start with a scan-and-plan routine. Small, consistent actions make waste reduction automatic.",
+  },
+  {
+    slug: "campus-circular-pilot",
+    title: "Running a circular food pilot on campus",
+    excerpt:
+      "We partnered with a university kitchen to track inventory, redirect surplus, and measure carbon impact in one dashboard.",
+    tag: "Operations",
+    readingTime: "7 min read",
+    date: "Apr 8, 2024",
+    author: "ExpireSense Team",
+    hero:
+      "https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?auto=format&fit=crop&w=1600&q=80",
+    sections: [
+      {
+        heading: "Baseline before change",
+        body: "Two weeks of logging prep, spoilage, and donations gave the campus team a clear waste-per-student metric. ExpireSense pulled the data automatically from scanned delivery notes.",
+      },
+      {
+        heading: "Close the loop",
+        body: "Produce nearing expiry was rerouted to pop-up vegetarian specials and discounted evening boxes. Surplus trays were batched and sent to a nearby food bank with temperature logs intact.",
+      },
+      {
+        heading: "Report the impact",
+        body: "Within one month the campus avoided 410 kg of food waste and cut cold storage energy costs by consolidating half-empty fridges. The sustainability office now exports monthly CO₂e savings straight from the app.",
+      },
+    ],
+    conclusion:
+      "Circularity is practical when the data is live. Students saw the impact on screens outside the cafeteria, turning a pilot into a campus-wide behavior shift.",
   },
 ];

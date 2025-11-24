@@ -61,6 +61,20 @@
        background: linear-gradient(180deg, rgba(19,38,35,0.05), rgba(19,38,35,0));
      }
 
+     .features-hero-surface {
+       background:
+         radial-gradient(120% 110% at 14% -5%, rgba(82,145,134,0.18), transparent 58%),
+         radial-gradient(110% 95% at 88% -10%, rgba(82,145,134,0.12), transparent 62%),
+         linear-gradient(180deg, #f9fefc 0%, #f1f6f3 100%);
+     }
+
+     .features-page-surface {
+       background:
+         radial-gradient(140% 140% at 12% -5%, rgba(82,145,134,0.16), transparent 60%),
+         radial-gradient(120% 120% at 88% 0%, rgba(82,145,134,0.12), transparent 62%),
+         linear-gradient(180deg, #f9fefc 0%, #eef5f2 100%);
+     }
+
      .whyus-gradient,
      .whyus-page {
        background: var(--whyus-gradient);

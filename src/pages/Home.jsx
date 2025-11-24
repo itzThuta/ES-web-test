@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCamera, FaLeaf, FaLink, FaUsers } from "react-icons/fa";
 import { FiBell, FiCalendar, FiCpu, FiTrendingUp } from "react-icons/fi";
@@ -10,14 +11,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { popIn, slideUp, staggerChildren } from "../utils/motionPresets";
-import heroImg from "../assets/team.png";
+import heroImg from "../assets/hero_logo.jpg";
 import avatar1 from "../assets/avatar1.png";
 import avatar2 from "../assets/avatar1.png";
 import avatar3 from "../assets/avatar1.png";
 
 const heroStats = [
-  { value: "x%", label: "less food waste, more savings" },
-  { value: "x hrs", label: "time saved every week" },
+  { value: "40%", label: "less food waste, more savings" },
+  { value: "3.5 hrs", label: "time saved every week" },
   { value: "4.9 ★", label: "loved by our beta users" },
 ];
 
@@ -73,26 +74,59 @@ const workflow = [
 
 const testimonials = [
   {
-    text: "ExpireSense has completely changed how we manage our food at home. We save money and waste less every week.",
-    author: "Sarah Oliver",
-    role: "Restaurant Manager",
+    text: "ExpireSense helped me track everything in my fridge effortlessly. I now waste far less food and save money every week!",
+    author: "Kaung Myat Kyaw",
+    role: "Home User",
     avatar: avatar1,
   },
   {
-    text: "I can’t imagine going back. The reminders and recipes are lifesavers for a busy family like ours.",
-    author: "Chloe Johnson",
-    role: "Student",
+    text: "I love the recipe suggestions for items about to expire. It’s like having a personal meal planner in my pocket.",
+    author: "Ponha",
+    role: "Home User",
     avatar: avatar2,
   },
   {
-    text: "Within 3 months, we cut food waste by 25% in our hotel kitchen. Simple, effective, and our staff love it.",
-    author: "Mark Lee",
-    role: "Hotel Manager",
+    text: "Using ExpireSense during the pilot, we reduced expired stock by 30% and created new menu items from near-expiry ingredients. It’s a real money saver.",
+    author: "Mi Kon",
+    role: "Restaurant",
     avatar: avatar3,
   },
 ];
 
 export default function Home() {
+  const [videoReady, setVideoReady] = useState(false);
+  const videoSectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVideoReady(true);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    const current = videoSectionRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+
+    return () => {
+      if (current) {
+        observer.unobserve(current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
+  const videoBase = "https://www.youtube.com/embed/UGZtHesAmzE";
+  const videoParams =
+    "mute=1&loop=1&playlist=UGZtHesAmzE&controls=1&modestbranding=1&rel=0";
+  const videoSrc = `${videoBase}?autoplay=${videoReady ? 1 : 0}&${videoParams}`;
+
   return (
     <div className="text-slate-800">
       {/* HERO */}
@@ -305,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* VIDEO SECTION */}
-      <section className="surface-gradient py-20">
+      <section className="surface-gradient py-20" ref={videoSectionRef}>
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-10">
           <motion.div
             variants={slideUp(0.05)}
@@ -315,14 +349,15 @@ export default function Home() {
             className="mx-auto max-w-3xl text-center"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--brand-600)]">
-              3-minute demo
+              Startup Grind Bangkok · Vlog
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
-              See how ExpireSense works from start to finish.
+              Ride along as we win Community Choice with ExpireSense.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-600">
-              From scanning a grocery receipt to triggering reminders and recipe
-              ideas, see how every item is put to good use.
+              A three-minute look at our Startup Grind Bangkok journey—pitch
+              floor energy, real customer stories, and how ExpireSense keeps
+              food out of landfills.
             </p>
           </motion.div>
 
@@ -336,8 +371,8 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-tr from-[rgba(54,148,134,0.18)] via-transparent to-[rgba(54,148,134,0.05)]" />
             <iframe
               className="relative z-[1] aspect-video w-full"
-              src="https://www.youtube.com/embed/5101qvp2wuQ"
-              title="ExpireSense Product Tour"
+              src={videoSrc}
+              title="ExpireSense at Startup Grind Bangkok"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -41,7 +41,7 @@ export default function Navbar() {
     { to: "/features", label: "Features" },
     { to: "/why-us", label: "Why Us" },
     { to: "/blog", label: "Blog" },
-    { to: "/subscription", label: "Subscription" },
+    // { to: "/subscription", label: "Subscription" },
   ];
 
   const featureDropdown = [

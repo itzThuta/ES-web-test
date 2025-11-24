@@ -48,7 +48,7 @@ export default function Blog() {
               <FaArrowRight className="text-xs" />
             </Link>
             <a
-              href="#latest-posts"
+              href="#blog"
               className="inline-flex items-center gap-2 rounded-full border border-brand-200 px-5 py-3 text-sm font-semibold text-[var(--brand-600)] transition hover:border-brand-300 hover:bg-brand-50"
             >
               Browse latest posts

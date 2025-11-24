@@ -71,7 +71,7 @@ export default function BlogDetail() {
           <img
             src={post.hero}
             alt={post.title}
-            className="h-72 w-full object-cover"
+            className="w-full object-cover h-[280px] sm:h-[380px] lg:h-[520px]"
           />
         </motion.div>
 

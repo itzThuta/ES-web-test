@@ -66,7 +66,6 @@ import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/ContactUs";
-import Subscription from "./pages/Subscription";
 import Savings from "./components/Savings";
 import Privacy from "./pages/Privacy";
 
@@ -85,7 +84,6 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
-            <Route path="/subscription" element={<Subscription />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/saving-calculator" element={<Savings />} />
