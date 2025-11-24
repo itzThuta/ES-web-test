@@ -153,7 +153,7 @@ export default function Contact() {
                   },
                   {
                     icon: <FaPhoneAlt />,
-                    label: "Phone",
+                    label: "Phone Number",
                     value: "+66 (0) 8 1119 9612",
                     href: "tel:+660811199612",
                   },
