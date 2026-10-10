@@ -15,13 +15,13 @@ const faqItems = [
   {
     question: "What is ExpireSense and how does it work?",
     answer:
-      "ExpireSense is a smart food waste platform that scans receipts, tracks what is in your kitchen, and reminds you before items expire. You get insights, meal ideas, and sharing tools for everyone at home.",
+      "ExpireSense is a food waste management platform that scans receipts, tracks what’s in your kitchen, and reminds you before items expire. You get insights, meal ideas, and sharing tools for everyone involved.",
     category: "General",
   },
   {
     question: "How long does it take to get set up?",
     answer:
-      "Most households are up and running in under 10 minutes. Scan your first receipt, or manually add a few items, and ExpireSense will guide you through setting reminders.",
+      "Most households are up and running in under 10 minutes. Scan your first receipt or add a few items, and ExpireSense will guide you through setting reminders.",
     category: "Getting Started",
   },
   {
@@ -33,13 +33,13 @@ const faqItems = [
   {
     question: "Do I need special hardware to scan receipts?",
     answer:
-      "No additional hardware is required. Snap a photo with your phone or upload a PDF—our OCR detects the items and suggests expiry dates automatically.",
+      "No additional hardware is required. Snap a photo with your phone or upload a PDF—our OCR detects items and suggests expiry dates automatically.",
     category: "Features",
   },
   {
     question: "Is there a free plan?",
     answer:
-      "We offer a generous free tier for personal use. Businesses can upgrade to unlock deeper analytics, automated reporting, and priority support.",
+      "We offer a free plan for personal use. Business plans add analytics, automated reporting, and priority support.",
     category: "Pricing",
   },
   {
@@ -120,7 +120,7 @@ export default function FAQ() {
           </motion.h1>
           <motion.p
             variants={fadeIn(0.1)}
-            className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto"
+            className="mt-4 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto"
           >
             Explore the most common topics about ExpireSense. Use the filters or
             search to find exactly what you need.
@@ -207,10 +207,10 @@ export default function FAQ() {
               <h2 className="text-lg font-semibold text-slate-900">
                 Still need help?
               </h2>
-              <p className="mt-2 text-sm text-slate-600">
-                Our team is just a message away. We respond within 24 hours on
-                business days.
-              </p>
+                <p className="mt-2 text-sm text-slate-700">
+                  Our team is just a message away. We respond within one business
+                  day.
+                </p>
 
               <div className="mt-5 space-y-4 text-sm text-slate-700">
                 <SupportRow
@@ -231,6 +231,13 @@ export default function FAQ() {
                   href="/blog"
                 />
               </div>
+
+              <Link
+                to="/contact"
+                className="mt-5 inline-flex items-center justify-center rounded-xl border border-brand-200 bg-brand-50/60 px-4 py-2 text-sm font-semibold text-[var(--brand-700)] transition hover:border-brand-300 hover:bg-white"
+              >
+                Contact support
+              </Link>
             </motion.div>
 
             <motion.div

@@ -13,12 +13,12 @@ const metrics = [
   {
     label: "Hours reclaimed from meal planning and tracking",
     value: "3.2 hrs",
-    description: "weekly admin time removed for kitchen leads",
+    description: "weekly admin time removed for kitchen leads (pilot)",
   },
   {
     label: "Satisfaction score",
     value: "4.9 / 5",
-    description: "loved by homes and professional kitchens",
+    description: "reported by early adopters",
   },
 ];
 
@@ -26,17 +26,17 @@ const differentiators = [
   {
     icon: FaLeaf,
     title: "Built for sustainable impact",
-    copy: "Our tools focus on lowering food waste and carbon footprint, helping households make measurable, sustainable choices.",
+    copy: "We help reduce food waste and carbon impact with measurable, easy-to-follow actions.",
   },
   {
     icon: FaChartLine,
-    title: "Unique Features",
-    copy: "Combines smart expiry tracking, easy receipt scanning, and recipe suggestions that use what’s on hand.",
+    title: "Operational clarity",
+    copy: "Smart expiry tracking, receipt scanning, and recipe suggestions keep teams aligned on what to use next.",
   },
   {
     icon: FaHandshake,
     title: "Trust & Reliability",
-    copy: "Delivers accurate expiry predictions and smart suggestions you can rely on, making kitchen management simple and dependable.",
+    copy: "Reliable predictions and clear next steps keep kitchen management simple and dependable.",
   },
 ];
 
@@ -57,10 +57,10 @@ export default function WhyUs() {
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
               What makes ExpireSense different
             </h2>
-            <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-              Other tools are just reminders and only show lists. ExpireSense
-              predicts expiry, suggests recipes, and tracks savings, making food
-              management effortless and effective.
+            <p className="mt-3 text-base sm:text-lg text-slate-700 max-w-3xl mx-auto">
+              Many tools stop at reminders. ExpireSense predicts expiry, suggests
+              recipes, and tracks savings—so food management feels effortless and
+              effective.
             </p>
           </motion.div>
 
@@ -113,7 +113,7 @@ export default function WhyUs() {
             <h1 className="mt-6 text-3xl sm:text-4xl font-bold leading-tight text-slate-900">
               A calmer, smarter way to run every kitchen
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="mt-4 text-base sm:text-lg text-slate-700 max-w-3xl mx-auto">
               Track your kitchen inventory, plan your meals, and save more with
               ExpireSense.
             </p>

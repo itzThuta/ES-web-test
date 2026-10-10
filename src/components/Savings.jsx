@@ -89,18 +89,20 @@ export default function Savings() {
 
             <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-brand-200 bg-brand-50/60 p-4 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-center sm:text-left">
-                Uses the adoption-based savings curve from your planning sheet
-                (5% capture with minimal use up to 19.25% when everyone is on
-                ExpireSense) and assumes {DEFAULT_TRIPS_PER_MONTH} shopping
-                trips per month.
+                Uses an adoption-based savings curve and assumes{" "}
+                {DEFAULT_TRIPS_PER_MONTH} shopping trips per month.
               </p>
               <a
-                href="#contact"
+                href="/#/contact"
                 className="inline-block self-center whitespace-nowrap px-3 py-1 text-xs text-[var(--brand-700)] border border-[var(--brand-300)] rounded transition hover:bg-[var(--brand-50)] sm:self-auto"
               >
                 Learn more
               </a>
             </div>
+            <p className="mt-4 text-xs text-slate-500">
+              Estimates are directional and will vary by household or team size,
+              inventory habits, and location.
+            </p>
           </div>
 
           <div className="space-y-6 text-center sm:text-left">
@@ -110,13 +112,13 @@ export default function Savings() {
               </h3>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">
                 Use your pantry and spending history to estimate savings and
-                track progress over time. Adjust as you track your items to keep
+                track progress over time. Adjust inputs as you log items to keep
                 your forecast realistic.
               </p>
               <ul className="mt-4 space-y-2 text-left text-sm text-slate-600">
-                <li>• Forecast your savings before trying.</li>
-                <li>• Track your progress.</li>
-                <li>• Celebrate your waste reduction and money saved.</li>
+                <li>• Forecast expected savings before rollout.</li>
+                <li>• Track progress month over month.</li>
+                <li>• Share wins with your household or team.</li>
               </ul>
             </div>
 
@@ -125,8 +127,8 @@ export default function Savings() {
                 Need a tailored calculation?
               </h4>
               <p className="mt-2">
-                Our team can plug in your exact supplier costs, donation
-                programmes, and sustainability metrics to build a custom
+                Our team can plug in your supplier costs, donation
+                programs, and sustainability metrics to build a custom
                 dashboard.
               </p>
             </div>

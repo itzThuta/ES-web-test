@@ -1,5 +1,6 @@
 /* Tailwind entry (v4 style). If you're on v3, replace this single line with:
    @tailwind base; @tailwind components; @tailwind utilities; */
+   @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
    @import "tailwindcss";
 
    /* ---------- Brand tokens (CSS variables) ---------- */
@@ -148,4 +149,15 @@
    }
    
    html { scroll-behavior: smooth; }
+   body { font-family: "Manrope", "Satoshi", "Avenir Next", "Helvetica Neue", sans-serif; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
    

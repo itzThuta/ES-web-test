@@ -21,8 +21,8 @@ function Slide({ title, subtitle }) {
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-700">{subtitle}</p>
         <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-          <a href="#contact" className="btn-brand">Contact Us</a>
-          <a href="#how-it-works" className="btn-brand-outline">How it works</a>
+          <a href="/#/contact" className="btn-brand">Contact Us</a>
+          <a href="/#/features" className="btn-brand-outline">Explore features</a>
         </div>
       </div>
     </div>

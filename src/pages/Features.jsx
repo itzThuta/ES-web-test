@@ -48,9 +48,9 @@ export default function Features() {
             <h1 className="mt-6 text-3xl sm:text-4xl font-bold leading-tight text-slate-900">
               Everything ExpireSense does to keep your kitchen in flow
             </h1>
-            <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
-            We simplify expiry tracking through smart receipt scanning, shared planning
-            tools, and clear sustainability insights - all designed to keep you informed and engaged.
+            <p className="mt-5 text-base sm:text-lg text-slate-700 max-w-3xl mx-auto">
+              We simplify expiry tracking through smart receipt scanning, shared planning
+              tools, and clear sustainability insights—designed to keep teams informed and aligned.
             </p>
           </motion.div>
         </div>

@@ -10,7 +10,7 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FiClock, FiMessageCircle } from "react-icons/fi";
+import { FiMessageCircle } from "react-icons/fi";
 
 export default function Contact() {
   const [result, setResult] = useState("");
@@ -27,6 +27,7 @@ export default function Contact() {
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
+      topic: form.topic.value.trim(),
       message: form.message.value.trim(),
     };
 
@@ -46,6 +47,10 @@ export default function Contact() {
       validationErrors.phone = "Phone is required.";
     } else if (!/^\+?[\d\s-]{7,}$/.test(formValues.phone)) {
       validationErrors.phone = "Enter a valid phone number.";
+    }
+
+    if (!formValues.topic) {
+      validationErrors.topic = "Please select an inquiry focus.";
     }
 
     if (!formValues.message) {
@@ -103,13 +108,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-16 bg-transparent"
+      className="relative py-16 bg-white"
     >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-[radial-gradient(circle_at_top,_rgba(54,148,134,0.16),transparent_65%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(circle_at_bottom,_rgba(20,42,38,0.08),transparent_60%)]" />
-      </div>
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.div
           variants={popFade}
           initial="hidden"
@@ -117,13 +118,13 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.35 }}
           className="text-center"
         >
-          {/* <span className="badge-soft mx-auto">We respond fast</span> */}
+          <span className="badge-soft mx-auto">Contact</span>
           <h2 className="mt-4 text-2xl font-semibold text-slate-900 sm:text-3xl">
             Contact <span className="text-[var(--brand-600)]">ExpireSense</span>
           </h2>
-          <p className="mt-3 text-base text-slate-600 sm:text-lg">
+          <p className="mt-3 text-base text-slate-700 sm:text-lg">
             Zero-waste kitchens start with a quick conversation. Pick what works
-            best for you—we reply in under 6 business hours.
+            best for you—we reply within one business day.
           </p>
         </motion.div>
 
@@ -135,15 +136,15 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-6"
           >
-            <div className="rounded-3xl border border-brand-200 bg-white/90 p-8 shadow-lg backdrop-blur">
+            <div className="rounded-3xl border border-brand-200 bg-white p-8 shadow-sm">
               <h3 className="text-xl font-semibold text-slate-900">
                 Reach us directly
               </h3>
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-slate-600">
                 Reach out by email, phone, or visit us in person — our team will
                 make sure your request gets to the right place.
               </p>
-              <ul className="mt-6 space-y-5 text-sm text-slate-600">
+              <ul className="mt-6 space-y-5 text-sm text-slate-700">
                 {[
                   {
                     icon: <FaEnvelope />,
@@ -165,7 +166,7 @@ export default function Contact() {
                 ].map((item) => (
                   <li
                     key={item.label}
-                    className="flex items-center gap-4 rounded-2xl border border-brand-100 bg-brand-50/60 p-4"
+                    className="flex items-center gap-4 rounded-2xl border border-brand-100 bg-brand-50/50 p-4"
                   >
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[var(--brand-600)] shadow-inner">
                       {item.icon}
@@ -202,51 +203,67 @@ export default function Contact() {
                   )
                 )}
               </div> */}
-              <div className="mt-6 rounded-2xl border border-dashed border-brand-200 bg-brand-50/80 px-4 py-3 text-sm text-slate-600">
-                Office Hours: Monday to Friday, 9:00 AM – 5:00 PM (Bangkok Time,
+              <div className="mt-6 rounded-2xl border border-dashed border-brand-200 bg-brand-50/60 px-4 py-3 text-sm text-slate-700">
+                Office hours: Monday to Friday, 9:00 AM – 5:00 PM (Bangkok Time,
                 UTC+7). Messages received outside business hours will be
-                addressed the following business day.
+                addressed the next business day.
               </div>
               <div className="mt-4 flex flex-wrap gap-3">
                 <a
                   href="mailto:contact@expiresense.com?subject=Book%20a%20demo"
                   className="inline-flex items-center justify-center rounded-full border border-brand-200 px-5 py-2 text-sm font-semibold text-[var(--brand-700)] transition hover:border-brand-300 hover:text-[var(--brand-600)]"
                 >
-                  Book a live call ↗
+                  Schedule a call ↗
                 </a>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-brand-200 bg-white/90 p-6 shadow-lg backdrop-blur">
+            <div className="rounded-3xl border border-brand-200 bg-white p-6 shadow-sm">
               <h4 className="text-lg font-semibold text-slate-900">
                 Follow us
               </h4>
               <p className="mt-1 text-sm text-slate-600">
-              Tips, playbooks, and behind-the-scenes insights
-              — follow us to stay inspired and waste less.
+                Tips, playbooks, and behind-the-scenes insights—follow us to
+                stay inspired and waste less.
               </p>
               <div className="mt-4 flex gap-4 text-xl text-slate-500">
-                {[FaFacebook, FaLinkedin, FaInstagram, FaXTwitter].map(
-                  (Icon, idx) => {
-                    const socials = [
-                      "https://www.facebook.com/share/19akE2JQY7/?mibextid=wwXIfr",
-                      "https://www.linkedin.com/company/expiresense/",
-                      "https://www.instagram.com/expiresense",
-                      "https://x.com/ExpireSense",
-                    ];
-                    return (
-                      <a
-                        key={socials[idx]}
-                        href={socials[idx]}
-                        className="transition hover:text-[var(--brand-600)]"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <Icon />
-                      </a>
-                    );
-                  }
-                )}
+                {[
+                  {
+                    Icon: FaFacebook,
+                    href: "https://www.facebook.com/share/19akE2JQY7/?mibextid=wwXIfr",
+                    label: "Facebook",
+                  },
+                  {
+                    Icon: FaLinkedin,
+                    href: "https://www.linkedin.com/company/expiresense/",
+                    label: "LinkedIn",
+                  },
+                  {
+                    Icon: FaInstagram,
+                    href: "https://www.instagram.com/expiresense",
+                    label: "Instagram",
+                  },
+                  {
+                    Icon: FaXTwitter,
+                    href: "https://x.com/ExpireSense",
+                    label: "X (Twitter)",
+                  },
+                ].map((social) => {
+                  const SocialIcon = social.Icon;
+
+                  return (
+                    <a
+                      key={social.href}
+                      href={social.href}
+                      aria-label={`Visit our ${social.label} page`}
+                      className="transition hover:text-[var(--brand-600)]"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <SocialIcon />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -257,7 +274,8 @@ export default function Contact() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
-            className="rounded-3xl border border-brand-200 bg-white p-8 shadow-xl"
+            className="rounded-3xl border border-brand-200 bg-white p-8 shadow-sm"
+            noValidate
           >
             <div className="flex items-center gap-4">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-[var(--brand-600)]">
@@ -273,6 +291,14 @@ export default function Contact() {
               </div>
             </div>
 
+            <p className="mt-4 text-xs text-slate-500">
+              Required fields are marked with{" "}
+              <span className="text-red-500" aria-hidden="true">
+                *
+              </span>
+              .
+            </p>
+
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <label className="text-sm font-semibold text-slate-600">
                 Name <span className="text-red-500" aria-hidden="true">*</span>
@@ -280,6 +306,7 @@ export default function Contact() {
                   type="text"
                   name="name"
                   required
+                  autoComplete="name"
                   aria-invalid={Boolean(errors.name)}
                   aria-describedby={errors.name ? "contact-name-error" : undefined}
                   className={`mt-1 w-full rounded-2xl border px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 ${
@@ -303,6 +330,7 @@ export default function Contact() {
                   type="email"
                   name="email"
                   required
+                  autoComplete="email"
                   aria-invalid={Boolean(errors.email)}
                   aria-describedby={errors.email ? "contact-email-error" : undefined}
                   className={`mt-1 w-full rounded-2xl border px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 ${
@@ -321,10 +349,11 @@ export default function Contact() {
                 )}
               </label>
               <label className="text-sm font-semibold text-slate-600">
-                Company
+                Company <span className="text-xs font-normal text-slate-400">(optional)</span>
                 <input
                   type="text"
                   name="company"
+                  autoComplete="organization"
                   className="mt-1 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:border-[var(--brand-400)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-100)]"
                 />
               </label>
@@ -334,6 +363,9 @@ export default function Contact() {
                   type="tel"
                   name="phone"
                   required
+                  autoComplete="tel"
+                  inputMode="tel"
+                  placeholder="+66 08 1119 9612"
                   aria-invalid={Boolean(errors.phone)}
                   aria-describedby={errors.phone ? "contact-phone-error" : undefined}
                   className={`mt-1 w-full rounded-2xl border px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 ${
@@ -355,12 +387,19 @@ export default function Contact() {
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <label className="text-sm font-semibold text-slate-600">
-                Inquiry focus
+                Inquiry focus{" "}
+                <span className="text-red-500" aria-hidden="true">*</span>
                 <select
                   name="topic"
-                  className="mt-1 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:border-[var(--brand-400)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-100)]"
-                  defaultValue=""
                   required
+                  aria-invalid={Boolean(errors.topic)}
+                  aria-describedby={errors.topic ? "contact-topic-error" : undefined}
+                  className={`mt-1 w-full rounded-2xl border px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 ${
+                    errors.topic
+                      ? "border-red-400 focus:border-red-500 focus:ring-red-100"
+                      : "border-slate-200 focus:border-[var(--brand-400)] focus:ring-[var(--brand-100)]"
+                  }`}
+                  defaultValue=""
                 >
                   <option value="" disabled>
                     Select an option
@@ -370,9 +409,18 @@ export default function Contact() {
                   <option value="support">Customer support</option>
                   <option value="media">Press / media</option>
                 </select>
+                {errors.topic && (
+                  <p
+                    id="contact-topic-error"
+                    className="mt-1 text-xs font-normal text-red-500"
+                  >
+                    {errors.topic}
+                  </p>
+                )}
               </label>
               <label className="text-sm font-semibold text-slate-600">
-                Preferred contact window
+                Preferred contact window{" "}
+                <span className="text-xs font-normal text-slate-400">(optional)</span>
                 <select
                   name="contact_window"
                   className="mt-1 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:border-[var(--brand-400)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-100)]"
@@ -395,6 +443,7 @@ export default function Contact() {
                 name="message"
                 required
                 rows="5"
+                placeholder="Tell us about your kitchen size, goals, or timeline."
                 aria-invalid={Boolean(errors.message)}
                 aria-describedby={
                   errors.message ? "contact-message-error" : undefined
@@ -445,10 +494,24 @@ export default function Contact() {
                     ? "text-[var(--brand-600)]"
                     : "text-red-500"
                 }`}
+                role={status === "success" ? "status" : "alert"}
+                aria-live="polite"
               >
                 {result}
               </p>
             )}
+
+            <p className="mt-4 text-xs text-slate-500">
+              By submitting this form, you agree to be contacted about your
+              request. We handle your data in line with our{" "}
+              <a
+                href="/#/privacy"
+                className="font-semibold text-[var(--brand-600)] underline-offset-2 hover:underline"
+              >
+                Privacy Policy
+              </a>
+              .
+            </p>
           </motion.form>
         </div>
       </div>

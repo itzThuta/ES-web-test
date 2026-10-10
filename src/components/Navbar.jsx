@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import {
   AnimatePresence,
@@ -41,7 +41,13 @@ export default function Navbar() {
     { to: "/features", label: "Features" },
     { to: "/why-us", label: "Why Us" },
     { to: "/blog", label: "Blog" },
+    { to: "/faq", label: "FAQ" },
     // { to: "/subscription", label: "Subscription" },
+  ];
+
+  const mobileLinks = [
+    ...links,
+    { to: "/contact", label: "Contact" },
   ];
 
   const featureDropdown = [
@@ -49,12 +55,9 @@ export default function Navbar() {
     { to: "/saving-calculator", label: "Saving Calculator" },
   ];
 
-  const dropdownItems = useMemo(
-    () => ({
-      Features: featureDropdown,
-    }),
-    []
-  );
+  const dropdownItems = {
+    Features: featureDropdown,
+  };
 
   return (
     <motion.nav
@@ -67,6 +70,19 @@ export default function Navbar() {
           : "border-b border-transparent bg-white/75"
       } backdrop-blur-xl`}
     >
+      <button
+        type="button"
+        onClick={() => {
+          const el = document.getElementById("main-content");
+          if (el) {
+            el.focus({ preventScroll: true });
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }}
+        className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-3 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--brand-700)] focus:shadow-lg"
+      >
+        Skip to content
+      </button>
       <motion.span
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[rgba(54,148,134,0.35)] to-transparent"
         initial={false}
@@ -76,7 +92,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-5 sm:px-6 lg:px-10">
         <NavLink
           to="/"
-          className="flex items-center gap-3 rounded-full bg-white/60 px-3 py-1.5 shadow-sm ring-1 ring-white/70 transition hover:bg-white/90"
+          className="flex items-center gap-3 px-1.5 py-1 transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-400)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
         >
           <img
             src={Logo}
@@ -103,16 +119,24 @@ export default function Navbar() {
                   className="relative"
                   onMouseEnter={() => setHovered(link.label)}
                   onMouseLeave={() => setHovered(null)}
+                  onFocus={() => setHovered(link.label)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) {
+                      setHovered(null);
+                    }
+                  }}
                 >
                   <NavLink
                     to={link.to}
                     className={({ isActive }) =>
-                      `relative px-1 text-base lg:text-[17px] font-medium transition-colors ${
+                      `relative px-1 text-base lg:text-[17px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-400)] focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
                         isActive || dropdownMatch
                           ? "text-[var(--brand-700)]"
                           : "text-slate-600 hover:text-[var(--brand-600)]"
                       }`
                     }
+                    aria-haspopup={dropdownItems[link.label] ? "menu" : undefined}
+                    aria-expanded={showDropdown ? "true" : "false"}
                   >
                     {({ isActive }) => (
                       <>
@@ -135,13 +159,16 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -10, scale: 0.98 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
+                        role="menu"
+                        aria-label={`${link.label} submenu`}
                         className="absolute left-0 mt-4 w-64 rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-2xl backdrop-blur-sm"
                       >
                         {dropdownItems[link.label].map((item) => (
                           <li key={item.to}>
                             <NavLink
                               to={item.to}
-                              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-brand-50 hover:text-[var(--brand-600)]"
+                              role="menuitem"
+                              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-brand-50 hover:text-[var(--brand-600)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-400)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                             >
                               <span>{item.label}</span>
                               <span aria-hidden className="text-xs text-[var(--brand-600)]">
@@ -162,7 +189,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <NavLink
             to="/contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand-600)] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:bg-[var(--brand-700)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand-600)] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:bg-[var(--brand-700)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-400)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
           >
             Contact Us
             <motion.span
@@ -176,7 +203,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden p-2 rounded-md hover:bg-slate-100 transition"
+          className="md:hidden p-2 rounded-md hover:bg-slate-100 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-400)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
         >
@@ -206,7 +233,7 @@ export default function Navbar() {
                 </span>
               </div>
               <ul className="space-y-2">
-                {links.map((link) => {
+                {mobileLinks.map((link) => {
                   const dropdownMatch =
                     dropdownItems[link.label]?.some((item) =>
                       location.pathname.startsWith(item.to)
@@ -217,7 +244,7 @@ export default function Navbar() {
                         to={link.to}
                         onClick={() => setOpen(false)}
                         className={({ isActive }) =>
-                          `block rounded-2xl px-4 py-3 text-base font-semibold transition ${
+                          `block rounded-2xl px-4 py-3 text-base font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-400)] focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
                             isActive || dropdownMatch
                               ? "bg-brand-50 text-[var(--brand-700)] ring-1 ring-[var(--brand-200)]"
                               : "text-slate-700 hover:bg-white hover:text-[var(--brand-600)]"
@@ -233,7 +260,7 @@ export default function Navbar() {
                               key={item.to}
                               to={item.to}
                               onClick={() => setOpen(false)}
-                              className="rounded-xl px-3 py-2 text-sm font-medium text-slate-500 transition hover:bg-brand-50 hover:text-[var(--brand-600)]"
+                              className="rounded-xl px-3 py-2 text-sm font-medium text-slate-500 transition hover:bg-brand-50 hover:text-[var(--brand-600)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-400)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                             >
                               {item.label}
                             </NavLink>

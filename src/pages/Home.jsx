@@ -17,31 +17,31 @@ import avatar2 from "../assets/avatar1.png";
 import avatar3 from "../assets/avatar1.png";
 
 const heroStats = [
-  { value: "40%", label: "less food waste, more savings" },
-  { value: "3.5 hrs", label: "time saved every week" },
-  { value: "4.9 ★", label: "loved by our beta users" },
+  { value: "40%", label: "less food waste" },
+  { value: "3.5 hrs", label: "time saved per week" },
+  { value: "4.9 ★", label: "early user satisfaction" },
 ];
 
 const highlightCards = [
   {
     icon: PiBarcode,
     title: "Receipts become inventory",
-    body: "Scan your groceries and let our systems track items, predict expirty dates, and manage your pantry for you.",
+    body: "Scan your groceries and let our systems track items, predict expiry dates, and manage your pantry for you.",
   },
   {
     icon: FiBell,
-    title: "Never Miss an Expiry",
+    title: "Never miss an expiry",
     body: "Get alerts before food goes bad, so you always know what needs attention in your pantry.",
   },
   {
     icon: FaCamera,
     title: "Visual timeline",
-    body: "Know what’s fresh, what to eat today, and what’s expiring soon with an color-coded timeline.",
+    body: "Know what’s fresh, what to eat today, and what’s expiring soon with a color-coded timeline.",
   },
   {
     icon: FaUsers,
-    title: "From Pantry to Plate",
-    body: "Discover recipe suggestions that help you transform your ingredients into meals before they go to waste.",
+    title: "From pantry to plate",
+    body: "Discover recipe suggestions that help you transform ingredients into meals before they go to waste.",
   },
 ];
 
@@ -93,6 +93,14 @@ const testimonials = [
   },
 ];
 
+const trustTags = [
+  "Hospitality teams",
+  "Campus kitchens",
+  "Households",
+  "Sustainability leads",
+  "Food programs",
+];
+
 export default function Home() {
   const [videoReady, setVideoReady] = useState(false);
   const videoSectionRef = useRef(null);
@@ -141,7 +149,7 @@ export default function Home() {
               className="relative order-2 text-center lg:order-1 lg:text-left"
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--brand-700)]">
-                Smarter kitchens · Happier planet
+                Smarter kitchens · Less waste
               </span>
               <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] text-slate-900 mx-auto max-w-3xl lg:mx-0">
                 Turn receipts into action with{" "}
@@ -149,10 +157,10 @@ export default function Home() {
                   ExpireSense
                 </span>
               </h1>
-              <p className="mt-5 max-w-xl text-base sm:text-lg text-slate-600 mx-auto lg:mx-0">
-                Automate inventory, forecast expiry dates, and get real-time
+              <p className="mt-5 max-w-xl text-base sm:text-lg text-slate-700 mx-auto lg:mx-0">
+                Automate inventory, forecast expiry dates, and surface real-time
                 insights. ExpireSense blends AI and sustainability so every item
-                gets used in time.
+                gets used on time.
               </p>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
                 <Link
@@ -170,7 +178,38 @@ export default function Home() {
                   {/* <FaLink className="text-xs" /> */}
                 </Link>
               </div>
-              <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <a
+                href="https://buysellstartups.com/listings/expiresense-mv0eysuo"
+                target="_blank"
+                rel="noopener"
+                aria-label="View ExpireSense on Buy Sell Startups"
+                className="group mx-auto mt-8 flex max-w-xl flex-col items-center gap-4 rounded-3xl border border-brand-200 bg-white/95 p-4 text-center shadow-soft transition hover:-translate-y-1 hover:border-[var(--brand-400)] hover:shadow-xl sm:flex-row sm:p-5 lg:mx-0 lg:text-left"
+              >
+                <div className="min-w-0 flex-1">
+                  <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--brand-600)]">
+                    Acquisition listing
+                  </span>
+                  <p className="mt-2 text-sm font-semibold text-slate-900 sm:text-base">
+                    ExpireSense is live on Buy Sell Startups.
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    View the public startup listing.
+                  </p>
+                </div>
+                <span className="flex shrink-0 rounded-2xl bg-slate-50 p-2 ring-1 ring-slate-200 transition group-hover:ring-[var(--brand-300)]">
+                  <img
+                    src="https://buysellstartups.com/api/badge/expiresense-mv0eysuo"
+                    alt="For Sale on Buy Sell Startups"
+                    width="280"
+                    height="68"
+                    className="h-auto max-w-full rounded-xl"
+                  />
+                </span>
+              </a>
+              <p className="mt-10 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                Pilot highlights
+              </p>
+              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {heroStats.map((stat, idx) => (
                   <motion.div
                     key={stat.label}
@@ -189,6 +228,9 @@ export default function Home() {
                   </motion.div>
                 ))}
               </div>
+              <p className="mt-4 text-xs text-slate-500">
+                Based on pilot teams. Results may vary by team size and workflows.
+              </p>
             </motion.div>
 
             <motion.div
@@ -221,6 +263,25 @@ export default function Home() {
       {/* HIGHLIGHTS */}
       <section className="surface-gradient py-20">
         <div className="max-w-content">
+          <div className="mb-12 rounded-3xl border border-brand-200 bg-white/90 px-6 py-6 text-center shadow-sm backdrop-blur sm:px-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+              Trusted by teams like yours
+            </p>
+            <p className="mt-3 text-base text-slate-600">
+              From households to hospitality, ExpireSense supports teams that
+              need clear visibility and less waste.
+            </p>
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
+              {trustTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-brand-200 bg-brand-50/70 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--brand-700)]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
           <motion.div
             variants={slideUp(0.05)}
             initial="hidden"
@@ -234,7 +295,7 @@ export default function Home() {
             <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
               Built for real kitchens, from homes to hospitality
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="mt-4 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto">
               Every interaction is fast, intuitive, and insightful; helping you
               reduce waste, save time, and stay on top of every item.
             </p>
@@ -295,7 +356,7 @@ export default function Home() {
               <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
                 A guided journey from purchase to plate
               </h2>
-              <p className="mt-4 text-base sm:text-lg text-slate-600">
+              <p className="mt-4 text-base sm:text-lg text-slate-700">
                 Every stage is visual, interactive, and trackable—so you can see
                 what’s fresh, what’s nearing expiry, and make smarter decisions
               </p>
@@ -352,9 +413,9 @@ export default function Home() {
               Startup Grind Bangkok · Vlog
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
-              Ride along as we win Community Choice with ExpireSense.
+              See how we won Community Choice with ExpireSense.
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600">
+            <p className="mt-4 text-base sm:text-lg text-slate-700">
               A three-minute look at our Startup Grind Bangkok journey—pitch
               floor energy, real customer stories, and how ExpireSense keeps
               food out of landfills.
@@ -395,9 +456,9 @@ export default function Home() {
               The ripple effect
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
-              ExpireSense helps thousands save food every day.
+              ExpireSense helps teams save food every day.
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="mt-4 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto">
               Restaurants, households, individuals, and food retail chains share
               one goal: make every ingredient count.
             </p>
@@ -424,9 +485,9 @@ export default function Home() {
                   whileHover={{ translateY: -6 }}
                   className="card-elevated relative flex h-full flex-col justify-between overflow-hidden p-6 transition"
                 >
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                    “{review.text}”
-                  </p>
+                    <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                      “{review.text}”
+                    </p>
                   <div className="mt-6 flex items-center gap-3">
                     <img
                       src={review.avatar}
@@ -449,6 +510,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECURITY */}
+      <section className="surface-gradient py-16">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-10">
+          <div className="rounded-3xl border border-brand-200 bg-white/90 p-8 shadow-sm backdrop-blur sm:p-10">
+            <div className="text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                Security & privacy
+              </p>
+              <h2 className="mt-3 text-2xl font-bold text-slate-900">
+                Built with trust in mind
+              </h2>
+              <p className="mt-3 text-sm sm:text-base text-slate-600">
+                We design ExpireSense with privacy-first defaults and clear
+                controls so teams can move fast with confidence.
+              </p>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {[
+                {
+                  title: "Encrypted data",
+                  body: "Data is protected in transit and at rest using modern standards.",
+                },
+                {
+                  title: "Controlled access",
+                  body: "Role-based permissions keep the right people in the right places.",
+                },
+                {
+                  title: "Full control",
+                  body: "Export or delete your data any time from your account.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm"
+                >
+                  <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                  <p className="mt-2 text-sm text-slate-600">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="surface-gradient py-20">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-10">
@@ -463,10 +568,10 @@ export default function Home() {
               <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                 <div>
                   <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-                    Start saving money, time, and the planet—together with
+                    Start saving money, time, and food—together with
                     ExpireSense.
                   </h2>
-                  <p className="mt-4 text-base sm:text-lg text-slate-600">
+                  <p className="mt-4 text-base sm:text-lg text-slate-700">
                     Join the ExpireSense movement and keep every ingredient in
                     motion. We handle the reminders, you handle the cooking.
                   </p>

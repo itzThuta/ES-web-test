@@ -52,6 +52,7 @@
 
 
 // src/App.jsx
+import { useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -61,7 +62,6 @@ import ScrollRestoration from "./components/ScrollRestoration";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
 import WhyUs from "./pages/WhyUs";
-import About from "./pages/AboutUs";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import FAQ from "./pages/FAQ";
@@ -70,18 +70,28 @@ import Savings from "./components/Savings";
 import Privacy from "./pages/Privacy";
 
 export default function App() {
+  useEffect(() => {
+    const { pathname, hash } = window.location;
+    if (hash.startsWith("#/") && pathname !== "/") {
+      window.history.replaceState(null, "", `/${hash}`);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Router>
         <ScrollRestoration />
         <Navbar />
 
-        <main className="pt-20 min-h-[calc(100vh-140px)]">
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="pt-20 min-h-[calc(100vh-140px)]"
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/features" element={<Features />} />
             <Route path="/why-us" element={<WhyUs />} />
-            <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/faq" element={<FAQ />} />

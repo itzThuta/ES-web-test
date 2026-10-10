@@ -70,10 +70,10 @@ export default function Privacy() {
           <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
             Privacy Policy
           </h1>
-          <p className="text-base text-slate-600 sm:text-lg">
+          <p className="text-base text-slate-700 sm:text-lg">
             We built ExpireSense for kitchens that take trust seriously. Below
-            you’ll find the mock policy highlights that outline how we handle
-            information, the safeguards in place, and the control you retain.
+            you’ll find a high-level summary of how we handle information, the
+            safeguards in place, and the control you retain.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-slate-500">
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1">
@@ -101,8 +101,8 @@ export default function Privacy() {
               <h2 className="text-lg font-semibold text-slate-900">
                 {section.title}
               </h2>
-              <p className="text-sm text-slate-600">{section.summary}</p>
-              <ul className="mt-2 space-y-2 text-sm text-slate-600">
+              <p className="text-sm text-slate-700">{section.summary}</p>
+              <ul className="mt-2 space-y-2 text-sm text-slate-700">
                 {section.points.map((point) => (
                   <li key={point} className="flex items-start gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
@@ -119,18 +119,18 @@ export default function Privacy() {
             <h3 className="text-xl font-semibold text-slate-900">
               Your controls & commitments
             </h3>
-            <div className="space-y-5 text-sm text-slate-600">
+            <div className="space-y-5 text-sm text-slate-700">
               <p>
-                This mock content outlines the control language we commonly ship
-                with clients. Actual legal terms come from your legal team, but
-                we always guarantee visibility into access logs, audit-ready
-                exports, and SOC 2-aligned safeguards.
+                This summary outlines the controls we commonly include for
+                customers. For full legal terms, refer to your signed agreement
+                and the latest policy updates. We prioritize visibility into
+                access logs, audit-ready exports, and SOC 2-aligned safeguards.
               </p>
               <p>
-                Customers on enterprise plans can add custom data-handling
-                riders, regional residency requirements, and request annotated
-                DPIA templates. Our compliance desk responds to privacy requests
-                within two business days.
+                Enterprise customers can request custom data-handling riders,
+                regional residency requirements, and annotated DPIA templates.
+                Our compliance desk responds to privacy requests within two
+                business days.
               </p>
               <p className="rounded-2xl bg-brand-50/80 p-4 text-sm text-slate-700">
                 Need something specific? Email{" "}
@@ -149,12 +149,12 @@ export default function Privacy() {
             <h4 className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
               At a glance
             </h4>
-            <dl className="space-y-4 text-sm text-slate-600">
+            <dl className="space-y-4 text-sm text-slate-700">
               {[
-                { label: "Data residency", value: "Singapore & Tokyo" },
-                { label: "Primary contact", value: "privacy@expiresense.com" },
-                { label: "DPO on record", value: "Apinya K., Head of Compliance" },
-                { label: "Subprocessors", value: "AWS, Vercel, Customer.io" },
+                { label: "Data residency", value: "Regional options available" },
+                { label: "Privacy contact", value: "privacy@expiresense.com" },
+                { label: "Compliance lead", value: "Available on request" },
+                { label: "Subprocessors", value: "Available on request" },
               ].map((item) => (
                 <div
                   key={item.label}
@@ -186,7 +186,7 @@ export default function Privacy() {
                       +
                     </span>
                   </summary>
-                  <p className="mt-3 text-sm text-slate-600">{item.answer}</p>
+                  <p className="mt-3 text-sm text-slate-700">{item.answer}</p>
                 </details>
                 {index !== faq.length - 1 && <div className="border-t border-slate-100" />}
               </Fragment>
@@ -200,8 +200,8 @@ export default function Privacy() {
               Need a signed DPA?
             </p>
             <p className="mt-2 text-base text-slate-700">
-              Send us your template or use ours. We usually countersign within
-              24 hours.
+              Send us your template or use ours. We typically turn around
+              requests quickly.
             </p>
           </div>
           <a

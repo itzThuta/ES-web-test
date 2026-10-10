@@ -48,12 +48,12 @@ const points = [
   },
   {
     icon: FaUsers,
-    title: "Aligned with a Greener Future",
-    body: " Designed to reduce waste, save money, and support a greener planet.",
+    title: "Aligned with a greener future",
+    body: "Designed to reduce waste, save money, and support a greener planet.",
   },
   {
     icon: FaUtensils,
-    title: "Turn Ingredients into Meals",
+    title: "Turn ingredients into meals",
     body: "Recipe suggestions tailored to what’s close to expiring in your kitchen.",
   },
 ];
@@ -172,7 +172,7 @@ export default function Benefits({ id = "benefits", className = "" }) {
           className="mt-10"
         >
           <a
-            href="#features"
+            href="/#/features"
             className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-6 py-3 font-medium text-[var(--brand-700)] transition hover:border-[var(--brand-300)] hover:bg-brand-50"
           >
             See how it works

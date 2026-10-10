@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
 
         <div className="mx-auto max-w-xs sm:mx-0">
-          <h4 className="mb-4 font-semibold text-slate-900">Direct Links</h4>
+          <h4 className="mb-4 font-semibold text-slate-900">Product</h4>
           <ul className="space-y-2 text-sm text-slate-600">
             <li>
               <Link
@@ -46,6 +46,14 @@ export default function Footer() {
                 className="transition hover:text-[var(--brand-600)]"
               >
                 Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/faq"
+                className="transition hover:text-[var(--brand-600)]"
+              >
+                FAQ
               </Link>
             </li>
             <li>
@@ -89,7 +97,7 @@ export default function Footer() {
               <a
                 href="https://www.facebook.com/share/19akE2JQY7/?mibextid=wwXIfr"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 transition hover:text-[var(--brand-600)]"
               >
                 <FaFacebook className="h-4 w-4" /> Facebook
@@ -99,7 +107,7 @@ export default function Footer() {
               <a
                 href="https://www.linkedin.com/company/expiresense/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 transition hover:text-[var(--brand-600)]"
               >
                 <FaLinkedin className="h-4 w-4" /> LinkedIn
@@ -109,7 +117,7 @@ export default function Footer() {
               <a
                 href="https://www.instagram.com/expiresense"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 transition hover:text-[var(--brand-600)]"
               >
                 <FaInstagram className="h-4 w-4" /> Instagram
@@ -119,10 +127,10 @@ export default function Footer() {
               <a
                 href="https://x.com/ExpireSense"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 transition hover:text-[var(--brand-600)]"
               >
-                <FaXTwitter className="h-4 w-4" /> Twitter
+                <FaXTwitter className="h-4 w-4" /> X (Twitter)
               </a>
             </li>
           </ul>
