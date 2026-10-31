@@ -1,9 +1,10 @@
 // src/App.jsx
-import { lazy, Suspense, useEffect } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollRestoration from "./components/ScrollRestoration";
+import PageMetadata from "./components/PageMetadata";
 
 // Pages
 import Home from "./pages/Home";
@@ -16,18 +17,12 @@ const Contact = lazy(() => import("./pages/ContactUs"));
 const Savings = lazy(() => import("./components/Savings"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 
-export default function App({ Router = HashRouter }) {
-  useEffect(() => {
-    const { pathname, hash } = window.location;
-    if (hash.startsWith("#/") && pathname !== "/") {
-      window.history.replaceState(null, "", `/${hash}`);
-    }
-  }, []);
-
+export default function App({ Router = BrowserRouter }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Router>
         <ScrollRestoration />
+        <PageMetadata />
         <Navbar />
 
         <main

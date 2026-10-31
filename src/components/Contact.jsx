@@ -505,7 +505,7 @@ export default function Contact() {
               By submitting this form, you agree to be contacted about your
               request. We handle your data in line with our{" "}
               <a
-                href="/#/privacy"
+                href="/privacy"
                 className="font-semibold text-[var(--brand-600)] underline-offset-2 hover:underline"
               >
                 Privacy Policy

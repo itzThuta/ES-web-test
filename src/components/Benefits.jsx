@@ -172,7 +172,7 @@ export default function Benefits({ id = "benefits", className = "" }) {
           className="mt-10"
         >
           <a
-            href="/#/features"
+            href="/features"
             className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-6 py-3 font-medium text-[var(--brand-700)] transition hover:border-[var(--brand-300)] hover:bg-brand-50"
           >
             See how it works

@@ -1,20 +1,16 @@
-/* eslint-disable react-refresh/only-export-components -- Build-only server entry. */
-import { renderToString } from "react-dom/server";
-import { createPath, Router } from "react-router-dom";
-import App from "./App.jsx";
+import { prerenderToNodeStream } from 'react-dom/static';
+import { renderToString } from 'react-dom/server';
+import { MemoryRouter } from 'react-router-dom';
+import App from './App.jsx';
 
-// Match HashRouter's link URLs during pre-rendering as well as hydration.
-const navigator = {
-  createHref: (to) => `#${typeof to === "string" ? to : createPath(to)}`,
-  push() {},
-  replace() {},
-  go() {},
-};
-
-function ServerRouter({ children }) {
-  return <Router location="/" navigator={navigator}>{children}</Router>;
-}
-
-export function render() {
+export async function render(path) {
+  function ServerRouter({ children }) {
+    return <MemoryRouter initialEntries={[path]}>{children}</MemoryRouter>;
+  }
+  // Wait for lazy routes so crawlers receive the page itself, not a loading shell.
+  const { prelude } = await prerenderToNodeStream(<App Router={ServerRouter} />);
+  // Drain React's prelude to resolve lazy imports, then emit a completed boundary
+  // instead of the streaming placeholders that require JavaScript to reveal content.
+  for await (const chunk of prelude) void chunk;
   return renderToString(<App Router={ServerRouter} />);
 }

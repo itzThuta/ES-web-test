@@ -93,7 +93,7 @@ export default function Savings() {
                 {DEFAULT_TRIPS_PER_MONTH} shopping trips per month.
               </p>
               <a
-                href="/#/contact"
+                href="/contact"
                 className="inline-block self-center whitespace-nowrap px-3 py-1 text-xs text-[var(--brand-700)] border border-[var(--brand-300)] rounded transition hover:bg-[var(--brand-50)] sm:self-auto"
               >
                 Learn more
