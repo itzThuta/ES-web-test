@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- Build-only server entry. */
 import { renderToString } from "react-dom/server";
 import { createPath, Router } from "react-router-dom";
 import App from "./App.jsx";
