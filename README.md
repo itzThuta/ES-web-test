@@ -14,7 +14,7 @@ The production build creates the browser bundle in `dist/`, builds a temporary s
 
 The browser hydrates the home page; hash-based deep links render their requested page on the client. Secondary routes are code-split. The existing visual design and responsive layouts are retained.
 
-Images have WebP variants with explicit dimensions and a responsive hero source. Manrope is self-hosted under `public/fonts/` with its license. YouTube mounts as its section approaches the viewport and uses the privacy-enhanced embed domain, retaining the existing player and autoplay behavior. Vercel caches versioned assets and fonts; source maps are emitted for diagnostics.
+Images have WebP variants with explicit dimensions and responsive AVIF hero sources. The production HTML includes the stylesheet to avoid an extra render-blocking request. Manrope is self-hosted under `public/fonts/` with its license. YouTube mounts as its section approaches the viewport and uses the privacy-enhanced embed domain, retaining the existing player and autoplay behavior. Vercel caches versioned assets and fonts; source maps are emitted for diagnostics.
 
 ## Verification
 

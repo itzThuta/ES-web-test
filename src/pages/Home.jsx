@@ -11,8 +11,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { popIn, slideUp, staggerChildren } from "../utils/motionPresets";
-import heroImg from "../assets/hero_logo.webp";
-import heroSmall from "../assets/hero_logo-small.webp";
+import heroImg from "../assets/hero-1024.avif";
+import heroSmall from "../assets/hero-480.avif";
+import heroMedium from "../assets/hero-768.avif";
 import avatar1 from "../assets/avatar1.webp";
 import avatar2 from "../assets/avatar1.webp";
 import avatar3 from "../assets/avatar1.webp";
@@ -252,7 +253,7 @@ export default function Home() {
               >
                 <img
                   src={heroImg}
-                  srcSet={`${heroSmall} 480w, ${heroImg} 1024w`}
+                  srcSet={`${heroSmall} 480w, ${heroMedium} 768w, ${heroImg} 1024w`}
                   sizes="(min-width: 1024px) 512px, (min-width: 640px) 448px, (min-width: 432px) 384px, calc(100vw - 48px)"
                   width="1477"
                   height="1108"
