@@ -1,75 +1,22 @@
-// import About from "./components/About.jsx";
-// import Benefits from "./components/Benefits.jsx";
-// import Contact from "./components/Contact.jsx";
-// import FeatureShowcase from "./components/FeatureShowcase.jsx";
-// import Footer from "./components/Footer.jsx";
-// import HeroCarousel from "./components/HeroCarousal.jsx";
-// import Navbar from "./components/Navbar";
-// import Savings from "./components/Savings.jsx";
-
-// export default function App() {
-//   return (
-//     <div className="min-h-screen bg-brand-50 text-slate-900">
-//       <Navbar />
-
-//       {/* Hero / Carousel */}
-//       <header id="home" className="pt-20">
-//         <HeroCarousel />
-//       </header>
-
-//       <main>
-//         {/* How it works / Features (no fixed height) */}
-//         <section id="how-it-works" className="scroll-mt-20">
-//           <FeatureShowcase />
-//         </section>
-
-//         {/* Benefits — gently pulled up toward Features */}
-//         <section className="scroll-mt-20 -mt-4 sm:-mt-6 lg:-mt-8">
-//           <Benefits id="benefits" className="pt-6 sm:pt-8 lg:pt-10" />
-//         </section>
-
-//         {/* Savings calculator */}
-//         <section className="scroll-mt-20">
-//           <Savings />
-//         </section>
-
-//         {/* About + Contact */}
-//         <section className="scroll-mt-20">
-//           <About id="about" />
-//         </section>
-
-//         <section className="scroll-mt-20">
-//           <Contact id="contact" />
-//         </section>
-//       </main>
-
-//       <footer>
-//         <Footer />
-//       </footer>
-//     </div>
-//   );
-// }
-
-
 // src/App.jsx
-import { useEffect } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollRestoration from "./components/ScrollRestoration";
 
 // Pages
 import Home from "./pages/Home";
-import Features from "./pages/Features";
-import WhyUs from "./pages/WhyUs";
-import Blog from "./pages/Blog";
-import BlogDetail from "./pages/BlogDetail";
-import FAQ from "./pages/FAQ";
-import Contact from "./pages/ContactUs";
-import Savings from "./components/Savings";
-import Privacy from "./pages/Privacy";
+const Features = lazy(() => import("./pages/Features"));
+const WhyUs = lazy(() => import("./pages/WhyUs"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogDetail = lazy(() => import("./pages/BlogDetail"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Contact = lazy(() => import("./pages/ContactUs"));
+const Savings = lazy(() => import("./components/Savings"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
-export default function App() {
+export default function App({ Router = HashRouter }) {
   useEffect(() => {
     const { pathname, hash } = window.location;
     if (hash.startsWith("#/") && pathname !== "/") {
@@ -88,6 +35,7 @@ export default function App() {
           tabIndex={-1}
           className="pt-20 min-h-[calc(100vh-140px)]"
         >
+          <Suspense fallback={<div className="min-h-screen" aria-busy="true" aria-label="Loading page" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/features" element={<Features />} />
@@ -99,6 +47,7 @@ export default function App() {
             <Route path="/saving-calculator" element={<Savings />} />
             <Route path="/privacy" element={<Privacy />} />
           </Routes>
+          </Suspense>
         </main>
 
         <Footer />

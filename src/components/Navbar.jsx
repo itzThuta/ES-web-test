@@ -8,7 +8,7 @@ import {
   useScroll,
   useSpring,
 } from "framer-motion";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo.webp";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -96,7 +96,9 @@ export default function Navbar() {
         >
           <img
             src={Logo}
-            alt="ExpireSense"
+            width="40"
+            height="40"
+            alt=""
             className="w-10 h-10 object-contain drop-shadow-sm"
             loading="eager"
           />

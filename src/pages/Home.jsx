@@ -11,10 +11,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { popIn, slideUp, staggerChildren } from "../utils/motionPresets";
-import heroImg from "../assets/hero_logo.jpg";
-import avatar1 from "../assets/avatar1.png";
-import avatar2 from "../assets/avatar1.png";
-import avatar3 from "../assets/avatar1.png";
+import heroImg from "../assets/hero_logo.webp";
+import heroSmall from "../assets/hero_logo-small.webp";
+import avatar1 from "../assets/avatar1.webp";
+import avatar2 from "../assets/avatar1.webp";
+import avatar3 from "../assets/avatar1.webp";
 
 const heroStats = [
   { value: "40%", label: "less food waste" },
@@ -111,10 +112,11 @@ export default function Home() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVideoReady(true);
+            observer.disconnect();
           }
         });
       },
-      { threshold: 0.4 }
+      { rootMargin: "300px 0px", threshold: 0 }
     );
 
     const current = videoSectionRef.current;
@@ -130,7 +132,7 @@ export default function Home() {
     };
   }, []);
 
-  const videoBase = "https://www.youtube.com/embed/UGZtHesAmzE";
+  const videoBase = "https://www.youtube-nocookie.com/embed/UGZtHesAmzE";
   const videoParams =
     "mute=1&loop=1&playlist=UGZtHesAmzE&controls=1&modestbranding=1&rel=0";
   const videoSrc = `${videoBase}?autoplay=${videoReady ? 1 : 0}&${videoParams}`;
@@ -143,7 +145,7 @@ export default function Home() {
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
             <motion.div
               variants={slideUp(0)}
-              initial="hidden"
+              initial="show"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}
               className="relative order-2 text-center lg:order-1 lg:text-left"
@@ -182,7 +184,6 @@ export default function Home() {
                 href="https://buysellstartups.com/listings/expiresense-mv0eysuo"
                 target="_blank"
                 rel="noopener"
-                aria-label="View ExpireSense on Buy Sell Startups"
                 className="group mx-auto mt-8 flex max-w-xl flex-col items-center gap-4 rounded-3xl border border-brand-200 bg-white/95 p-4 text-center shadow-soft transition hover:-translate-y-1 hover:border-[var(--brand-400)] hover:shadow-xl sm:flex-row sm:p-5 lg:mx-0 lg:text-left"
               >
                 <div className="min-w-0 flex-1">
@@ -214,7 +215,7 @@ export default function Home() {
                   <motion.div
                     key={stat.label}
                     variants={popIn(idx * 0.05)}
-                    initial="hidden"
+                    initial="show"
                     whileInView="show"
                     viewport={{ once: true, amount: 0.4 }}
                     className="card-elevated px-5 py-5 text-center sm:text-left"
@@ -235,7 +236,7 @@ export default function Home() {
 
             <motion.div
               variants={popIn(0.12)}
-              initial="hidden"
+              initial="show"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}
               className="relative order-1 flex justify-center lg:order-2"
@@ -251,6 +252,12 @@ export default function Home() {
               >
                 <img
                   src={heroImg}
+                  srcSet={`${heroSmall} 480w, ${heroImg} 1024w`}
+                  sizes="(min-width: 1024px) 512px, (min-width: 640px) 448px, (min-width: 432px) 384px, calc(100vw - 48px)"
+                  width="1477"
+                  height="1108"
+                  fetchPriority="high"
+                  decoding="async"
                   alt="ExpireSense workspace"
                   className="h-full w-full object-cover"
                 />
@@ -427,17 +434,17 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.4 }}
-            className="relative mt-12 overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 shadow-xl"
+            className="relative mt-12 aspect-video overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 shadow-xl"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-[rgba(54,148,134,0.18)] via-transparent to-[rgba(54,148,134,0.05)]" />
-            <iframe
+            {videoReady && <iframe
               className="relative z-[1] aspect-video w-full"
               src={videoSrc}
               title="ExpireSense at Startup Grind Bangkok"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-            ></iframe>
+            ></iframe>}
           </motion.div>
         </div>
       </section>
@@ -491,7 +498,11 @@ export default function Home() {
                   <div className="mt-6 flex items-center gap-3">
                     <img
                       src={review.avatar}
-                      alt={review.author}
+                      alt=""
+                      width="48"
+                      height="48"
+                      loading="lazy"
+                      decoding="async"
                       className="h-12 w-12 rounded-full object-cover shadow"
                     />
                     <div>

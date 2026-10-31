@@ -2,7 +2,7 @@ import React from "react";
 import { FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png"; // replace with your logo
+import logo from "../assets/logo.webp"; // replace with your logo
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -13,6 +13,10 @@ export default function Footer() {
         <div className="mx-auto max-w-sm sm:mx-0">
           <img
             src={logo}
+            width="473"
+            height="528"
+            loading="lazy"
+            decoding="async"
             alt="ExpireSense Logo"
             className="mb-6 w-28 object-contain md:w-32"
           />
@@ -22,7 +26,7 @@ export default function Footer() {
         </div>
 
         <div className="mx-auto max-w-xs sm:mx-0">
-          <h4 className="mb-4 font-semibold text-slate-900">Product</h4>
+          <h2 className="mb-4 font-semibold text-slate-900">Product</h2>
           <ul className="space-y-2 text-sm text-slate-600">
             <li>
               <Link
@@ -68,7 +72,7 @@ export default function Footer() {
         </div>
 
         <div className="mx-auto max-w-xs sm:mx-0">
-          <h4 className="mb-4 font-semibold text-slate-900">Contact</h4>
+          <h2 className="mb-4 font-semibold text-slate-900">Contact</h2>
           <ul className="space-y-2 text-sm text-slate-600">
             <li>Bangkok, Thailand</li>
             <li>
@@ -91,7 +95,7 @@ export default function Footer() {
         </div>
 
         <div className="mx-auto max-w-xs sm:mx-0">
-          <h4 className="mb-4 font-semibold text-slate-900">Follow Us</h4>
+          <h2 className="mb-4 font-semibold text-slate-900">Follow Us</h2>
           <ul className="space-y-3 text-sm text-slate-600">
             <li>
               <a

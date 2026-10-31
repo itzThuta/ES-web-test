@@ -1,12 +1,21 @@
-# React + Vite
+# ExpireSense
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 / Vite site. Use Node.js 22.12 or later.
 
-Currently, two official plugins are available:
+```sh
+npm ci
+npm run dev
+npm run lint
+npm run build
+npm run preview
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The production build creates the browser bundle in `dist/`, builds a temporary server bundle in `dist-ssr/`, and pre-renders the home page into `dist/index.html`. Deploy **dist**, using the full `npm run build` command so pre-rendering runs. Vercel detects this script automatically.
 
-## Expanding the ESLint configuration
+The browser hydrates the home page; hash-based deep links render their requested page on the client. Secondary routes are code-split. The existing visual design and responsive layouts are retained.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Images have WebP variants with explicit dimensions and a responsive hero source. Manrope is self-hosted under `public/fonts/` with its license. YouTube mounts as its section approaches the viewport and uses the privacy-enhanced embed domain, retaining the existing player and autoplay behavior. Vercel caches versioned assets and fonts; source maps are emitted for diagnostics.
+
+## Verification
+
+Production build and ESLint must pass. Check both mobile and desktop in Lighthouse against the deployed HTTPS homepage, and verify navigation, mobile menu, calculator, FAQ, and video playback. Scores vary with network, CPU, third-party services, and Lighthouse version. Remaining brand-button contrast requires a visible color change, so the existing colors are retained.

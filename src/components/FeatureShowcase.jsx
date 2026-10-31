@@ -18,11 +18,11 @@ import {
   staggerChildren,
 } from "../utils/motionPresets";
 
-import shoppingImg from "../assets/6.png";
+import shoppingImg from "../assets/6.webp";
 import inventoryImg from "../assets/3.jpg";
 import recipesImg from "../assets/1.jpg";
-import plannerImg from "../assets/5.png";
-import expiryImg from "../assets/2.png";
+import plannerImg from "../assets/5.webp";
+import expiryImg from "../assets/2.webp";
 
 const STEPS = [
   {
@@ -268,6 +268,10 @@ function PhoneFrame({ src, alt }) {
         <div className="absolute left-1/2 top-0 h-4 w-16 -translate-x-1/2 rounded-b-2xl bg-slate-900/80" />
         <img
           src={src}
+          width="1280"
+          height="2856"
+          loading="lazy"
+          decoding="async"
           alt={alt}
           className="h-full w-full select-none object-cover"
           draggable="false"
