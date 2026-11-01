@@ -59,52 +59,6 @@ Follow our product updates, food-waste tips, and startup journey.
 
 Based in **Bangkok, Thailand**. For demos, partnerships, or questions, [contact our team](https://www.expiresense.com/contact).
 
-## 🛠️ Run the website locally
-
-Use **Node.js 22.12 or later** and npm.
-
-```sh
-git clone https://github.com/itzThuta/ES-web-test.git
-cd ES-web-test
-npm ci
-npm run dev
-```
-
-Open the local URL printed by Vite.
-
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the development server with hot reloading. |
-| `npm run lint` | Run ESLint. |
-| `npm run build` | Build browser and server bundles, pre-render public pages, and generate the sitemap. |
-| `npm run preview` | Preview the production build locally after building. |
-
-### Stack & project layout
-
-Built with **React 19**, **Vite 7**, **Tailwind CSS 4**, and **React Router 7**, with Framer Motion, Swiper, and React Icons for the interface.
-
-```text
-public/                 Static files, robots.txt, and self-hosted fonts
-scripts/prerender.mjs    Public-page pre-rendering and sitemap generation
-src/assets/             Brand assets and images
-src/components/         Reusable website sections and interface components
-src/data/               Page metadata and blog content
-src/pages/              Website pages
-src/entry-server.jsx    Server rendering entry point
-```
-
-### Production build & deployment
-
-Run the full `npm run build` command and deploy **`dist/`**. The build also produces a temporary server bundle in `dist-ssr/`. Vercel detects the build script automatically.
-
-Public pages are pre-rendered and hydrated in the browser, with clean URLs, page-specific titles, descriptions, and canonical links. Old hash-based URLs redirect to matching routes. Add public routes to `src/data/sitePages.js` so they appear in pre-rendering and the generated `sitemap.xml`; `robots.txt` advertises that sitemap.
-
-Images include WebP variants, explicit dimensions, and responsive AVIF hero sources. Manrope is self-hosted in `public/fonts/` with its license. Production HTML includes its stylesheet, secondary routes are code-split, and YouTube loads near the viewport using the privacy-enhanced embed domain, retaining the existing player and autoplay behavior. Vercel caches versioned assets and fonts; source maps are emitted for diagnostics.
-
-### Before submitting changes
-
-Run `npm run lint` and `npm run build`. Check navigation, the mobile menu, savings calculator, FAQ, and video playback on mobile and desktop. For performance changes, check Lighthouse against the deployed HTTPS homepage; scores depend on network, CPU, third-party services, and Lighthouse version. Existing brand-button contrast remains a known limitation requiring a visible color change.
-
 ---
 
 <p align="center"><strong>Smart • Simple • Sustainable</strong><br /><a href="https://www.expiresense.com/">ExpireSense</a> — Make every ingredient count.</p>
