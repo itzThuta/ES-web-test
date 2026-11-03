@@ -96,7 +96,7 @@ export default function Savings() {
                 href="/contact"
                 className="inline-block self-center whitespace-nowrap px-3 py-1 text-xs text-[var(--brand-700)] border border-[var(--brand-300)] rounded transition hover:bg-[var(--brand-50)] sm:self-auto"
               >
-                Learn more
+                Contact our team
               </a>
             </div>
             <p className="mt-4 text-xs text-slate-500">
