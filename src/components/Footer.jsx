@@ -146,7 +146,7 @@ export default function Footer() {
           <p>© {year} ExpireSense — Smart • Simple • Sustainable</p>
           <div className="flex flex-wrap justify-center gap-6 md:justify-end">
             <Link
-              to="/privacy"
+              to="/privacypolicy"
               className="transition hover:text-[var(--brand-600)]"
             >
               Privacy Policy

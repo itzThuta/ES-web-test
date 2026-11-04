@@ -1,6 +1,6 @@
 // src/App.jsx
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollRestoration from "./components/ScrollRestoration";
@@ -40,7 +40,8 @@ export default function App({ Router = BrowserRouter }) {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/saving-calculator" element={<Savings />} />
-            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/privacypolicy" element={<Privacy />} />
+            <Route path="/privacy" element={<Navigate to="/privacypolicy" replace />} />
           </Routes>
           </Suspense>
         </main>

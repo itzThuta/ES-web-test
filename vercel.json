@@ -20,5 +20,12 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/privacy",
+      "destination": "/privacypolicy",
+      "permanent": true
+    }
+  ]
 }

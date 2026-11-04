@@ -9,6 +9,6 @@ export const sitePages = [
   { path: '/faq', title: 'Frequently Asked Questions | ExpireSense', description: 'Find answers to common questions about ExpireSense, smart inventory tracking, expiry predictions, onboarding, and support.' },
   { path: '/contact', title: 'Contact | ExpireSense', description: 'Contact the ExpireSense team to book a demo, discuss a kitchen pilot, or get help reducing food waste with intelligent inventory management.' },
   { path: '/saving-calculator', title: 'Savings Calculator | ExpireSense', description: 'Estimate your potential food waste savings with the ExpireSense calculator using your household size, adoption, and grocery budget.' },
-  { path: '/privacy', title: 'Privacy Policy | ExpireSense', description: 'Learn how ExpireSense handles personal information, protects your privacy, and supports your data rights and choices.' },
+  { path: '/privacypolicy', title: 'Privacy Policy | ExpireSense', description: 'Learn how ExpireSense handles personal information, protects your privacy, and supports your data rights and choices.' },
   ...blogPosts.map(post => ({ path: `/blog/${post.slug}`, title: `${post.title} | ExpireSense`, description: post.excerpt })),
 ];
