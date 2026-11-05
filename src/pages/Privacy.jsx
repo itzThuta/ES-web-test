@@ -3,7 +3,7 @@ import { FiLock, FiClock } from "react-icons/fi";
 
 const sections = [
   ["scope", "Who we are and what this policy covers", [
-    "ExpireSense helps people manage food and reduce waste. This policy covers the ExpireSense Android app, version 1.0.3, and www.expiresense.com. The app developer is Thu Ta Zaw (James). ExpireSense is responsible for information you provide directly to our team.",
+    "ExpireSense helps people manage food and reduce waste. This policy covers the ExpireSense Android app, version 1.0.6, and www.expiresense.com. The app developer is Thu Ta Zaw (James). ExpireSense is responsible for information you provide directly to our team.",
     "Inventory, receipt recognition, recipe matching, and recipe text work on your device. Recipe photos require an internet connection. The website is an online service with separate data practices described below. Opening a website link from the app uses your browser and is subject to those website practices."
   ]],
   ["android", "Android app: local inventory and receipt processing", [
@@ -11,8 +11,8 @@ const sections = [
     "ExpireSense does not receive, collect on its servers, sell, or share your app inventory or receipt content. Bundled Google ML Kit recognizes receipt text on-device; receipt photos and recognized text are not uploaded for recognition."
   ]],
   ["recipe-photos", "Recipe photos and partial offline operation", [
-    "Recipe matching and recipe text work on-device. When you view recipe photos, the app loads them over HTTPS from thumb.wikimedia.org and upload.wikimedia.org. These image servers receive your IP address, connection information, and the requested image URL. Your inventory, receipt images, and recognized text are not sent with these requests.",
-    "The app does not save recipe photographs to disk. Decoded images may remain temporarily in memory, and browsers may manage their own network cache. Without an internet connection, recipe text remains readable, but photos may be unavailable. Wikimedia’s privacy policy explains its handling of image requests; a link is included in the provider notices below."
+    "Recipe matching and recipe text work on-device. When you view recipe photos, version 1.0.6 loads them over HTTPS from www.expiresense.com. Our hosting and delivery providers receive your IP address, connection information, and the requested image URL. Your inventory, receipt images, and recognized text are not sent with these requests.",
+    "The app does not save recipe photographs to disk. Decoded images may remain temporarily in memory, and browsers may manage their own network cache. Without an internet connection, recipe text remains readable, but photos may be unavailable. Earlier app versions through 1.0.5 loaded their available photos from Wikimedia image servers. Provider privacy links are included below. Most current serving images were generated with AI specifically for their recipes; this does not send user inventory to an AI service."
   ]],
   ["permissions", "Camera, photos, and optional reminders", [
     "When you choose to scan a receipt, the app uses the camera or Android system image picker. You control camera permission and which image you select. Temporary image copies may remain in the app cache. Original gallery images remain under your control.",
@@ -47,7 +47,7 @@ const sections = [
     "Expiry suggestions are estimates, not food-safety guarantees. Follow printed use-by dates and storage instructions. Do not use recipe suggestions as a reason to eat food past its use-by date. Recipe dietary labels describe listed ingredients; they do not certify products, guarantee allergy safety, or prevent cross-contact."
   ]],
   ["changes", "Changes to this policy", [
-    "We will update this page and its effective date when our practices change. New features such as accounts or cloud sync would require updated disclosures; they are not part of Android version 1.0.3."
+    "We will update this page and its effective date when our practices change. New features such as accounts or cloud sync would require updated disclosures; they are not part of Android version 1.0.6."
   ]],
 ];
 

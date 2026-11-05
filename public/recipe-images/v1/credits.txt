@@ -1,0 +1,21 @@
+# Published recipe photo credits
+
+Photos are fetched from remote URLs. No photo is shared between recipes. 129 other recipe images are AI-generated serving illustrations commissioned for ExpireSense, each based on that recipe's ingredients and method. They do not claim a third-party stock-photo license. All 132 images are hosted on www.expiresense.com.
+
+## Cheese and tomato toast
+Toast with cheddar cheese and tomato.jpg — OKJaguar — CC0
+https://commons.wikimedia.org/wiki/File:Toast_with_cheddar_cheese_and_tomato.jpg
+https://creativecommons.org/publicdomain/zero/1.0/deed.en
+Displayed with responsive cropping.
+
+## Buttermilk pancakes
+Buttermilk pancakes from a recipe by Darina Allen.jpg — Lajmmoore — CC BY-SA 4.0
+https://commons.wikimedia.org/wiki/File:Buttermilk_pancakes_from_a_recipe_by_Darina_Allen.jpg
+https://creativecommons.org/licenses/by-sa/4.0
+Displayed with responsive cropping.
+
+## Cauliflower cheese bake
+Cauliflower-cheese.jpg — Andy / Andrew Fogg from near Cambridge, UK — CC BY 2.0
+https://commons.wikimedia.org/wiki/File:Cauliflower-cheese.jpg
+https://creativecommons.org/licenses/by/2.0
+Displayed with responsive cropping.
