@@ -6,16 +6,17 @@ Photos are fetched from remote URLs. No photo is shared between recipes. 129 oth
 Toast with cheddar cheese and tomato.jpg — OKJaguar — CC0
 https://commons.wikimedia.org/wiki/File:Toast_with_cheddar_cheese_and_tomato.jpg
 https://creativecommons.org/publicdomain/zero/1.0/deed.en
-Displayed with responsive cropping.
+Resized and converted to WebP; displayed with responsive cropping. The licensed photograph remains under the license linked above.
 
 ## Buttermilk pancakes
 Buttermilk pancakes from a recipe by Darina Allen.jpg — Lajmmoore — CC BY-SA 4.0
 https://commons.wikimedia.org/wiki/File:Buttermilk_pancakes_from_a_recipe_by_Darina_Allen.jpg
 https://creativecommons.org/licenses/by-sa/4.0
-Displayed with responsive cropping.
+Resized and converted to WebP; displayed with responsive cropping. The licensed photograph remains under the license linked above.
 
 ## Cauliflower cheese bake
 Cauliflower-cheese.jpg — Andy / Andrew Fogg from near Cambridge, UK — CC BY 2.0
 https://commons.wikimedia.org/wiki/File:Cauliflower-cheese.jpg
 https://creativecommons.org/licenses/by/2.0
-Displayed with responsive cropping.
+Resized and converted to WebP; displayed with responsive cropping. The licensed photograph remains under the license linked above.
+
